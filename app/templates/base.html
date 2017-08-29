@@ -36,7 +36,13 @@
                 <li><a href="/">How it works</a></li>
                 <li><a href="/">Help</a></li>
                 <li><a href="/">About</a></li>
-                <li><a href="/">Login/Sign Up</a></li>
+                
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.logout') }}">Sign Out</a></li>
+                {% else %}
+                <li><a href="{{ url_for('auth.login') }}">Sign In</a></li>
+                {% endif %}
+
             </ul>
         </div>
 
@@ -48,10 +54,21 @@
 
 {% block content %}
 <div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type = "button" class = "close" data-dismiss = "alert">&times;</button>
+
+        {{message}}
+    </div>
+    {% endfor %}
+
     {% block page_content %}{% endblock %}
 </div>
 
 {%- block footer %}
-<footer>&copy; 2016 Awesome, Inc.</footer>
+
+<footer class = "col-md-6" style = "position:absolute; bottom:2%">
+    <hr></hr>&copy; Ziolk
+</footer>
 {%- endblock footer %}
 {% endblock %}
