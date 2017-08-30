@@ -3,60 +3,89 @@
 <!-- ************* Title bar icons ******************************* -->
 
 {% block head %}
-    {{ super() }}
+    <style>
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
 
     <link rel="shortcut icon" href="{{ url_for('static', filename = 'favicon.ico') }}"
     type="image/x-icon">
     <link rel="icon" href="{{ url_for('static', filename = 'favicon.ico') }}"
     type="image/x-icon">
 
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{{ url_for('static', filename = 'vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename = 'css/main.css') }}" rel="stylesheet">
+
 {% endblock %}
 
-{% block title %}Ziolk{% endblock %}
 
 <!-- **************** Navbar *********************************************** -->
 {% block navbar %}
-<div class="navbar navbar-inverse" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Ziolk</a>
-        </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+      <div class="container">
+        <a class="navbar-brand" href="{{url_for('ziolkB.index') }}">Ziolk</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Design Now</a></li>
-                <li><a href="/">Have a Design?</a></li>
-                <li><a href="/">Instant Quote</a></li>
-                <li><a href="/">How it works</a></li>
-                <li><a href="/">Help</a></li>
-                <li><a href="/">About</a></li>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Design Now</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Instant Quote</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">How it works</a></li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/">About</a></li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Contact</a></li>
                 
                 {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('profile.settings') }}">Account Settings</a></li>
-                <li><a href="{{ url_for('profile.info') }}">Profile</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('profile.settings') }}">Account Settings</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('profile.info') }}">Profile</a></li>
                 
-                <li><a href="{{ url_for('auth.logout') }}">Sign Out</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth.logout') }}">Sign Out</a></li>
                 {% else %}
-                <li><a href="{{ url_for('auth.login') }}">Sign In</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth.login') }}">Sign In</a></li>
                 {% endif %}
-
-            </ul>
+          </ul>
         </div>
+      </div>
+    </nav>
 
-    </div>
-</div>
+
 {% endblock %}
+
+
+
+{% block title %}Ziolk{% endblock %}
+
+
 
 <!-- ************* Page Content Boiler Code ***************************** -->
 
 {% block content %}
-<div class="container">
+<div>
     {% for message in get_flashed_messages() %}
     <div class="alert alert-warning">
         <button type = "button" class = "close" data-dismiss = "alert">&times;</button>
@@ -65,10 +94,47 @@
     </div>
     {% endfor %}
 
-    {% block page_content %}{% endblock %}
+    <div class="page-content">
+    {% block page_content %}
+    {% endblock %}
+    </div>
 </div>
 
+
+ 
+
 {%- block footer %}
+
+<!-- Footer -->
+<div id="main-wrapper"  >
+    <footer class="footer">
+      <!-- <div class="container"> -->
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="{{url_for('ziolkB.index')}}">Home</a>
+          </li>
+          <li class="footer-menu-divider list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#about">About</a>
+          </li>
+          <li class="footer-menu-divider list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#services">Services</a>
+          </li>
+          <li class="footer-menu-divider list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+        <p class="copyright text-muted small">Copyright &copy; Ziolk 2017. All Rights Reserved</p>
+      <!-- </div> -->
+    </footer>
+</div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename = 'vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/popper/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+
 <!-- 
 <footer class = "col-md-6" style = "position:absolute; bottom:2%">
     <hr></hr>&copy; Ziolk

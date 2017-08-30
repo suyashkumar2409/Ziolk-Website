@@ -1,18 +1,60 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
+  <head>
 
-{% block title %}Ziolk{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-{% block page_content %}
+    <title>Landing Page - Start Bootstrap Theme</title>
 
-<!-- Header -->
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
     <header class="intro-header">
       <div class="container">
         <div class="intro-message">
-          <h1>Ziolk</h1>
-          <h3>Order your custom T-Shirts here</h3>
+          <h1>Landing Page</h1>
+          <h3>A Template by Start Bootstrap</h3>
           <hr class="intro-divider">
-          <!-- <ul class="list-inline intro-social-buttons">
+          <ul class="list-inline intro-social-buttons">
             <li class="list-inline-item">
               <a href="#" class="btn btn-secondary btn-lg">
                 <i class="fa fa-twitter fa-fw"></i>
@@ -31,7 +73,7 @@
                 <span class="network-name">Linkedin</span>
               </a>
             </li>
-          </ul> -->
+          </ul>
         </div>
       </div>
     </header>
@@ -50,7 +92,7 @@
               for providing the photographs that you see in this template. Visit their website to become a member.</p>
           </div>
           <div class="col-lg-5 mr-auto">
-            <img class="img-fluid" src="static/img/ipad.png" alt="">
+            <img class="img-fluid" src="img/ipad.png" alt="">
           </div>
         </div>
 
@@ -71,7 +113,7 @@
               <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
           </div>
           <div class="col-lg-5 ml-auto order-lg-1">
-            <img class="img-fluid" src="static/img/dog.png" alt="">
+            <img class="img-fluid" src="img/dog.png" alt="">
           </div>
         </div>
 
@@ -95,7 +137,7 @@
               <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
           </div>
           <div class="col-lg-5 mr-auto ">
-            <img class="img-fluid" src="static/img/phones.png" alt="">
+            <img class="img-fluid" src="img/phones.png" alt="">
           </div>
         </div>
 
@@ -143,12 +185,35 @@
     </aside>
     <!-- /.banner -->
 
-<!-- 
-<div class="page-header">
-	{% if current_user.is_authenticated %}
-    <h1>Hello {{ current_user.username }}</h1>
-    {% else %}
-    <h1>Hello World!</h1>
-    {% endif %}
-</div>
- -->{% endblock %}
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#">Home</a>
+          </li>
+          <li class="footer-menu-divider list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#about">About</a>
+          </li>
+          <li class="footer-menu-divider list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#services">Services</a>
+          </li>
+          <li class="footer-menu-divider list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+        <p class="copyright text-muted small">Copyright &copy; Your Company 2017. All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

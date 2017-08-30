@@ -4,6 +4,10 @@
 {% block title %}Ziolk - Login{% endblock %}
 
 {% block page_content %}
+{{super()}}
+
+<div class = "padding-required">
+
 <div class = "page-header">
 	<h1>Login</h1>
 </div>
@@ -22,5 +26,6 @@
 <p>
 	Forgot Password? <a href="{{ url_for('auth.forgotPassword') }}">Click Here</a>
 </p>
+</div>
 </div>
 {% endblock %}
