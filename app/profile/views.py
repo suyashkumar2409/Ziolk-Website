@@ -6,19 +6,37 @@ from .forms import ChangeForm
 from app import db
 
 @profile_blueprint.route('/settings', methods = ['GET', 'POST'])
-def changeSettings():
-	form = LoginForm()
+@login_required
+def settings():
+	form = ChangeForm()
 
 	if form.validate_on_submit():
-		user = User.query.filter_by(email = form.email.data).first()
+		user = current_user
+		redirectToConfirmationPage = False
+		changeHappened = False
+		###### A change in email ########
+		if form.oldEmail.data != '':
+			user.email = form.newEmail.data
+			user.confirmed = False
+			redirectToConfirmationPage = True
+			changeHappened = True
 
-		if user is not None and user.verify_password(form.password.data):
-			login_user(user, form.remember_me.data)
+		###### A change in password #####
+		if form.oldPassword.data != '':
+			user.password = form.password.data
+			changeHappened = True
 
-			if current_user.confirmed:
-				return redirect(request.args.get('next') or url_for('ziolkB.index'))
-			else:
-				return redirect(url_for('auth.unconfirmed'))
-		flash('Invalid username or password')
-	return render_template('auth/login.html', form = form)
+		if changeHappened:
+			db.session.add(user)
+			db.session.commit()
+
+		if redirectToConfirmationPage:
+			return redirect(url_for('auth.resend_confirmation'))
+		else:
+			return redirect(url_for('ziolkB.index'))
+	return render_template('profile/settings.html', form = form)
+
+@profile_blueprint.route('/info')
+def info():
+	return render_template('profile/info.html', user = current_user)
 

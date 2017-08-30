@@ -41,6 +41,19 @@ class User(UserMixin, db.Model):
         db.session.add(self)
         return True
 
+    def generate_reset_token(self, expiration = 3600*24):
+        s = Serializer(current_app.config['SECRET_KEY'], expiration)
+        return s.dumps({'confirm':self.id})
+
+    @staticmethod
+    def confirm_reset(token, expiration = 3600*24):
+        s = Serializer(current_app.config['SECRET_KEY'], expiration)
+        try:
+            data = s.loads(token)
+        except:
+            return False
+        return data.get('confirm')
+
     @property
     def password(self):
         raise AttributeError('password is not a readable attribute')

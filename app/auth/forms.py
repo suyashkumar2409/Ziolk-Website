@@ -25,3 +25,18 @@ class RegistrationForm(Form):
 	def validate_username(self, field):
 		if User.query.filter_by(username=field.data).first():
 			raise ValidationError('Username already in use.')
+
+class ForgotPasswordForm(Form):
+
+	email = StringField('Email', validators = [Required(), Length(1, 64), Email()])
+	submit = SubmitField('Send Reset Password Link')
+
+	def validate_email(self, field):
+		if not User.query.filter_by(email=field.data).first():
+			raise ValidationError('No account found registered by that email.')
+	
+class ResetPasswordForm(Form):
+	password = PasswordField('New Password', validators=[Required(), EqualTo('password2', message='Passwords must match.')])
+	password2 = PasswordField('Confirm new password', validators=[Required()])
+	submit = SubmitField('Reset Password')
+	

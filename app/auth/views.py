@@ -1,8 +1,8 @@
 from . import auth as auth_blueprint
-from flask import render_template, redirect, url_for, flash, request
+from flask import render_template, redirect, url_for, flash, request, session
 from ..models import User
 from flask_login import login_required, login_user, logout_user, current_user
-from .forms import LoginForm, RegistrationForm
+from .forms import LoginForm, RegistrationForm, ForgotPasswordForm, ResetPasswordForm
 from app import db
 from ..email import send_email
 
@@ -73,7 +73,7 @@ def unconfirmed():
 		return redirect(url_for('ziolkB.index'))
 	return render_template('auth/unconfirmed.html')
 
-@auth_blueprint.route('/confirm')
+@auth_blueprint.route('/sendConfirmation')
 @login_required
 def resend_confirmation():
 	if current_user.confirmed:
@@ -84,3 +84,45 @@ def resend_confirmation():
 		send_email(current_user.email, 'Confirm Your Account', 'auth/email/confirm', user = current_user, token=token)
 		flash('A new confirmation email has been sent to you by email.')
 		return redirect(url_for('ziolkB.index'))
+
+@auth_blueprint.route('/forgotPassword', methods = ['GET', 'POST'])
+def forgotPassword():
+	form = ForgotPasswordForm()
+
+	if form.validate_on_submit():
+		user = User.query.filter_by(email = form.email.data).first()
+		token = user.generate_reset_token()
+		send_email(form.email.data, 'Reset your password', 'auth/email/reset', user = user, token = token)
+		flash('An email has been sent to this email address. Please click on the link to reset password.')
+
+		return redirect(url_for('ziolkB.index'))
+
+	return render_template('auth/reset.html', form = form)
+
+
+@auth_blueprint.route('/reset/<token>', methods = ['GET', 'POST'])
+def reset(token):
+	form = ResetPasswordForm()
+
+	if form.validate_on_submit():
+		userID = session.get('my_User_ID')
+		user = User.query.filter_by(id = userID).first()
+
+		user.password = form.password.data
+
+		db.session.add(user)
+		db.session.commit()
+
+		return redirect(url_for('auth.login'))
+		
+	else:
+
+		userID = User.confirm_reset(token = token)
+
+		if userID is not False:
+			session['my_User_ID'] = userID
+
+			return render_template('auth/resetPassword.html', form = form)
+		else:
+			flash('Invalid Reset Password Link')
+			return redirect(url_for('ziolkB.index'))

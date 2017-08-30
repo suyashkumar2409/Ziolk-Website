@@ -1,0 +1,12 @@
+Dear {{ user.username }},
+
+Greetings from Ziolk!
+
+We just received a request from you to change your password. If you were the one who initiated that request, please click here:
+
+{{ url_for('auth.reset', token=token, _external=True) }}
+
+Sincerely,
+The Ziolk Team
+
+Note: replies to this email address are not monitored.

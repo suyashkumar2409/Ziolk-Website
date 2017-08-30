@@ -1,0 +1,8 @@
+<p>Dear {{ user.username }},</p>
+<p>Greetings from <b>Ziolk</b>!</p>
+<p>We just received a request from you to change your password. If you were the one who initiated that request, please  <a href="{{ url_for('auth.reset', token=token, _external=True) }}">click here</a>.</p>
+<p>Alternatively, you can paste the following link in your browser's address bar:</p>
+<p>{{ url_for('auth.reset', token=token, _external=True) }}</p>
+<p>Sincerely,</p>
+<p>The Ziolk Team</p>
+<p><small>Note: replies to this email address are not monitored.</small></p>
