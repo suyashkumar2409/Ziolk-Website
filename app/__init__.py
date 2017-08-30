@@ -35,5 +35,7 @@ def create_app(config_name):
 	from .profile import profile as profile_blueprint
 	app.register_blueprint(profile_blueprint, url_prefix='/profile')
 
+	from .design import design as design_blueprint
+	app.register_blueprint(design_blueprint, url_prefix='/design')
 	return app
 
