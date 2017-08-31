@@ -54,24 +54,24 @@ var line4;
 		  //canvas.renderAll();
 		});
 		 		 	 
-		document.getElementById('add-text').onclick = function() {
-			var text = $("#text-string").val();
-		    var textSample = new fabric.Text(text, {
-		      left: fabric.util.getRandomInt(0, 200),
-		      top: fabric.util.getRandomInt(0, 400),
-		      fontFamily: 'helvetica',
-		      angle: 0,
-		      fill: '#000000',
-		      scaleX: 0.5,
-		      scaleY: 0.5,
-		      fontWeight: '',
-	  		  hasRotatingPoint:true
-		    });		    
-            canvas.add(textSample);	
-            canvas.item(canvas.item.length-1).hasRotatingPoint = true;    
-            $("#texteditor").css('display', 'block');
-            $("#imageeditor").css('display', 'block');
-	  	};
+		// document.getElementById('add-text').onclick = function() {
+		// 	var text = $("#text-string").val();
+		//     var textSample = new fabric.Text(text, {
+		//       left: fabric.util.getRandomInt(0, 200),
+		//       top: fabric.util.getRandomInt(0, 400),
+		//       fontFamily: 'helvetica',
+		//       angle: 0,
+		//       fill: '#000000',
+		//       scaleX: 0.5,
+		//       scaleY: 0.5,
+		//       fontWeight: '',
+	 //  		  hasRotatingPoint:true
+		//     });		    
+  //           canvas.add(textSample);	
+  //           canvas.item(canvas.item.length-1).hasRotatingPoint = true;    
+  //           $("#texteditor").css('display', 'block');
+  //           $("#imageeditor").css('display', 'block');
+	 //  	};
 	  	$("#text-string").keyup(function(){	  		
 	  		var activeObject = canvas.getActiveObject();
 		      if (activeObject && activeObject.type === 'text') {
@@ -102,49 +102,49 @@ var line4;
 		          canvas.add(image);
 		        });
 	  	});	  		  
-	  document.getElementById('remove-selected').onclick = function() {		  
-		    var activeObject = canvas.getActiveObject(),
-		        activeGroup = canvas.getActiveGroup();
-		    if (activeObject) {
-		      canvas.remove(activeObject);
-		      $("#text-string").val("");
-		    }
-		    else if (activeGroup) {
-		      var objectsInGroup = activeGroup.getObjects();
-		      canvas.discardActiveGroup();
-		      objectsInGroup.forEach(function(object) {
-		        canvas.remove(object);
-		      });
-		    }
-	  };
-	  document.getElementById('bring-to-front').onclick = function() {		  
-		    var activeObject = canvas.getActiveObject(),
-		        activeGroup = canvas.getActiveGroup();
-		    if (activeObject) {
-		      activeObject.bringToFront();
-		    }
-		    else if (activeGroup) {
-		      var objectsInGroup = activeGroup.getObjects();
-		      canvas.discardActiveGroup();
-		      objectsInGroup.forEach(function(object) {
-		        object.bringToFront();
-		      });
-		    }
-	  };
-	  document.getElementById('send-to-back').onclick = function() {		  
-		    var activeObject = canvas.getActiveObject(),
-		        activeGroup = canvas.getActiveGroup();
-		    if (activeObject) {
-		      activeObject.sendToBack();
-		    }
-		    else if (activeGroup) {
-		      var objectsInGroup = activeGroup.getObjects();
-		      canvas.discardActiveGroup();
-		      objectsInGroup.forEach(function(object) {
-		        object.sendToBack();
-		      });
-		    }
-	  };		  
+	  // document.getElementById('remove-selected').onclick = function() {		  
+		 //    var activeObject = canvas.getActiveObject(),
+		 //        activeGroup = canvas.getActiveGroup();
+		 //    if (activeObject) {
+		 //      canvas.remove(activeObject);
+		 //      $("#text-string").val("");
+		 //    }
+		 //    else if (activeGroup) {
+		 //      var objectsInGroup = activeGroup.getObjects();
+		 //      canvas.discardActiveGroup();
+		 //      objectsInGroup.forEach(function(object) {
+		 //        canvas.remove(object);
+		 //      });
+		 //    }
+	  // };
+	  // document.getElementById('bring-to-front').onclick = function() {		  
+		 //    var activeObject = canvas.getActiveObject(),
+		 //        activeGroup = canvas.getActiveGroup();
+		 //    if (activeObject) {
+		 //      activeObject.bringToFront();
+		 //    }
+		 //    else if (activeGroup) {
+		 //      var objectsInGroup = activeGroup.getObjects();
+		 //      canvas.discardActiveGroup();
+		 //      objectsInGroup.forEach(function(object) {
+		 //        object.bringToFront();
+		 //      });
+		 //    }
+	  // };
+	  // document.getElementById('send-to-back').onclick = function() {		  
+		 //    var activeObject = canvas.getActiveObject(),
+		 //        activeGroup = canvas.getActiveGroup();
+		 //    if (activeObject) {
+		 //      activeObject.sendToBack();
+		 //    }
+		 //    else if (activeGroup) {
+		 //      var objectsInGroup = activeGroup.getObjects();
+		 //      canvas.discardActiveGroup();
+		 //      objectsInGroup.forEach(function(object) {
+		 //        object.sendToBack();
+		 //      });
+		 //    }
+	  // };		  
 	  $("#text-bold").click(function() {		  
 		  var activeObject = canvas.getActiveObject();
 		  if (activeObject && activeObject.type === 'text') {
