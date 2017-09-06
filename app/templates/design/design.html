@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/jquery.miniColors.css') }}" />
+    <link href="{{url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/bootstrap-responsive.min.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/design.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/picker.css') }}">
+  </head>
+
+  <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
+
+  	<!-- **ColorPicker** -->
+
+  		<div class="hccp-outerdiv">
+		<canvas class="hccp-canvas" id="hccp-FindCanvasColor"></canvas>
+		<div class="hccp-innerdiv">
+		<br>
+		<!-- <p>On Hover <span id="hccp-hoverColorFont">Color</span></p>
+		<p class="hccp-colorbar" id="hccp-hoverColorBackground" style="color:white">|</p>
+		<p>RGB: <input type="text" id="hccp-hoverColorRGB"></input></p>
+		<p>HEX: <input type="text" id="hccp-hoverColorHEX"></input></p>
+		<br>
+		 -->
+		 <p>On Click <span id="hccp-clickColorFont">Color</span></p>
+		<p class="hccp-colorbar" id="hccp-clickColorBackground" style="color:white"> |</p>
+		<!-- <p>RGB: <input type="text" id="hccp-clickColorRGB"></input></p>
+		<p>HEX: <input type="text" id="hccp-clickColorHEX"></input></p>
+		 -->
+		</div>
+		<br>
+		<div class="hccp-resetdiv"></div>
+		</div>
+
+	<!-- **ColorPicker** -->
+
+
+ 	<div id="clip-path"></div>
+
+    <div class="container">
+
+		<section id="typography">
+		  <div class="page-header">
+		    <h1>Design T-Shirt</h1>
+		  </div>
+		
+				
+
+
+		<form>
+
+		  <!-- Mid Section -->
+		<div class="row">			
+		    
+		    <div class="span3">
+		    	
+		    	<div class="tabbable"> <!-- Only required for left/right tabs -->
+				  <!-- <ul class="nav nav-tabs">
+				  	<li class="active"><a href="#tab1" data-toggle="tab">T-Shirt Options</a></li>				    
+				    <li><a href="#tab2" data-toggle="tab">Gravatar</a></li>
+				  </ul> -->
+					<div class="tab-content">
+				    	<div>
+				     		<div class="well left-panel">
+<!-- 
+				     		<button >Collapsible</button>
+
+							<div id="demo" class="collapse">
+							Lorem ipsum dolor text....
+							</div> -->
+
+							<div class="poppableClick">
+
+				    		<h5>Select Product</h5>
+					      		<div class = "poppable">
+
+						      		<select id="selectProduct">                        
+					                    <option value="1" selected="selected">Short Sleeve Shirts</option>
+					                    <option value="2">Long Sleeve Shirts</option>                                        
+					                    <option value="3">Hoodies</option>                    
+					                    <option value="4">Tank tops</option>
+									</select>	
+
+								</div>		
+
+							</div>	
+					      	<!-- </div>
+							<div class="well">
+							 -->	
+							<h5 data-toggle="collapse" data-target="#selectColor" class="toggleCaret">
+								<span class="caret-right"></span>T-Shirt Color </h5>
+								<div  id="selectColor" class="collapse">
+								<ul class="nav" >
+									<li class="color-preview" title="White" style="background-color:#ffffff;"></li>
+									<li class="color-preview" title="Dark Heather" style="background-color:#616161;"></li>
+									<li class="color-preview" title="Gray" style="background-color:#f0f0f0;"></li>
+									<li class="color-preview" title="Charcoal" style="background-color:#5b5b5b;"></li>
+									<li class="color-preview" title="Black" style="background-color:#222222;"></li>
+									<li class="color-preview" title="Heather Orange" style="background-color:#fc8d74;"></li>
+									<li class="color-preview" title="Heather Dark Chocolate" style="background-color:#432d26;"></li>
+									<li class="color-preview" title="Salmon" style="background-color:#eead91;"></li>
+									<li class="color-preview" title="Chesnut" style="background-color:#806355;"></li>
+									<li class="color-preview" title="Dark Chocolate" style="background-color:#382d21;"></li>
+									<li class="color-preview" title="Citrus Yellow" style="background-color:#faef93;"></li>
+									<li class="color-preview" title="Avocado" style="background-color:#aeba5e;"></li>
+									<li class="color-preview" title="Kiwi" style="background-color:#8aa140;"></li>
+									<li class="color-preview" title="Irish Green" style="background-color:#1f6522;"></li>
+									<li class="color-preview" title="Scrub Green" style="background-color:#13afa2;"></li>
+									<li class="color-preview" title="Teal Ice" style="background-color:#b8d5d7;"></li>
+									<li class="color-preview" title="Heather Sapphire" style="background-color:#15aeda;"></li>
+									<li class="color-preview" title="Sky" style="background-color:#a5def8;"></li>
+									<li class="color-preview" title="Antique Sapphire" style="background-color:#0f77c0;"></li>
+									<li class="color-preview" title="Heather Navy" style="background-color:#3469b7;"></li>							
+									<li class="color-preview" title="Cherry Red" style="background-color:#c50404;"></li>
+								</ul>
+								</div>
+								
+							<h5 data-toggle="collapse" data-target="#addText" class="toggleCaret">
+								<span class="caret-right"></span>Add Text </h5>
+								
+
+								<div  id="addText" class="collapse">
+									<input type="text" style="max-width:60%">
+									<button>Add Text</button>
+
+									<br><br>
+
+									<div>
+										<h6>Font</h6>
+										<select id="selectFont"> 
+										</select>
+
+										<h6>Size</h6>
+										<input type="number" step="1" id="selectSize"></input>	
+									</div>
+
+									<div>
+										<h6>Color</h6>
+
+										<!-- **ColorPicker** -->
+
+										<!-- <div class="hccp-outerdiv">
+										<canvas class="hccp-canvas" id="hccp-FindCanvasColor"></canvas>
+										<div class="hccp-innerdiv">
+										<br>
+										<p>On Hover <span id="hccp-hoverColorFont">Color</span></p>
+										<p class="hccp-colorbar" id="hccp-hoverColorBackground"> </p>
+										<p>RGB: <input type="text" id="hccp-hoverColorRGB"></input></p>
+										<p>HEX: <input type="text" id="hccp-hoverColorHEX"></input></p>
+										<br>
+										<p>On Click <span id="hccp-clickColorFont">Color</span></p>
+										<p class="hccp-colorbar" id="hccp-clickColorBackground"> </p>
+										<p>RGB: <input type="text" id="hccp-clickColorRGB"></input></p>
+										<p>HEX: <input type="text" id="hccp-clickColorHEX"></input></p>
+										</div>
+										<br>
+										<div class="hccp-resetdiv"></div>
+										</div> -->
+
+										<!-- **ColorPicker** -->
+
+									</div>
+
+								</div>
+							
+							<h5 data-toggle="collapse" data-target="#selectColor" class="toggleCaret">
+								<span class="caret-right"></span>Upload Image </h5>
+							
+							<h5 data-toggle="collapse" data-target="#selectColor" class="toggleCaret">
+								<span class="caret-right"></span>Name & Number </h5>
+							
+
+
+							</div>			      
+				     	</div>				   
+				    </div>				      
+				</div>
+		    </div>
+
+
+			<div class="span6">		    
+				<div align="center" style="min-height: 32px;">
+					<div class="clearfix">
+						<div class="btn-group inline pull-left" id="texteditor" style="display:none">						  
+							<button id="font-family" class="btn dropdown-toggle" data-toggle="dropdown" title="Font Style"><i class="icon-font" style="width:19px;height:19px;"></i></button>		                      
+						    <ul class="dropdown-menu" role="menu" aria-labelledby="font-family-X">
+							    <li><a tabindex="-1" href="#" onclick="setFont('Arial');" class="Arial">Arial</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Helvetica');" class="Helvetica">Helvetica</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Myriad Pro');" class="MyriadPro">Myriad Pro</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Delicious');" class="Delicious">Delicious</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Verdana');" class="Verdana">Verdana</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Georgia');" class="Georgia">Georgia</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Courier');" class="Courier">Courier</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Comic Sans MS');" class="ComicSansMS">Comic Sans MS</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Impact');" class="Impact">Impact</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Monaco');" class="Monaco">Monaco</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Optima');" class="Optima">Optima</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Hoefler Text');" class="Hoefler Text">Hoefler Text</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Plaster');" class="Plaster">Plaster</a></li>
+							    <li><a tabindex="-1" href="#" onclick="setFont('Engagement');" class="Engagement">Engagement</a></li>
+				            </ul>
+						    <button id="text-bold" class="btn" data-original-title="Bold"><img src="{{url_for('static', filename='img/font_bold.png') }}" height="" width=""></button>
+						    <button id="text-italic" class="btn" data-original-title="Italic"><img src="{{url_for('static', filename='img/font_italic.png') }}" height="" width=""></button>
+						    <button id="text-strike" class="btn" title="Strike" style=""><img src="{{url_for('static', filename='img/font_strikethrough.png') }}" height="" width=""></button>
+						 	<button id="text-underline" class="btn" title="Underline" style=""><img src="{{url_for('static', filename='img/font_underline.png') }}"></button>
+						 	<a class="btn" href="#" rel="tooltip" data-placement="top" data-original-title="Font Color"><input type="hidden" id="text-fontcolor" class="color-picker" size="7" value="#000000"></a>
+					 		<a class="btn" href="#" rel="tooltip" data-placement="top" data-original-title="Font Border Color"><input type="hidden" id="text-strokecolor" class="color-picker" size="7" value="#000000"></a>
+							
+						</div>
+
+						<div id="shirtDiv" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
+							<img id="tshirtFacing" src="{{url_for('static', filename='img/crew_front.png') }}"></img>
+							<div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">					
+								<canvas id="tcanvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>	
+			
+			<div class="span3">
+		  		<div class="well">
+			      	<h3>Total Prices</h3>
+	    		</div>		
+			    <p>
+			    	<table class="table">
+			      		<tr>
+			      			<td>Short Sleeve</td>
+			      			<td align="right">$12.49</td>
+			      		</tr>
+			      		<tr>
+			      			<td>Front Design</td>
+			      			<td align="right">$4.99</td>
+			      		</tr>
+			      		<tr>
+			      			<td>Back Design</td>
+			      			<td align="right">$4.99</td>
+			      		</tr>
+			      		<tr>
+			      			<td><strong>Total</strong></td>
+			      			<td align="right"><strong>$22.47</strong></td>
+			      		</tr>
+			      	</table>			
+			    </p>
+				
+				<button type="button" class="btn btn-large btn-block btn-success" name="addToTheBag" id="addToTheBag">Add to bag <i class="icon-briefcase icon-white"></i></button>
+			    </div>		      		       		   
+			</div>
+		
+		</div>
+	</form>
+	</section>
+</div>
+
+
+<!-- /container -->
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>	
+	<script type="text/javascript" src="{{url_for('static', filename='js/fabric.js') }}"></script>
+	<script type="text/javascript" src="{{url_for('static', filename='js/tshirtEditor.js') }}"></script>
+	<script type="text/javascript" src="{{url_for('static', filename='js/jquery.miniColors.min.js') }}"></script>
+	
+    <script src="{{url_for('static', filename='js/bootstrap.min.js') }}"></script>    
+
+<!-- helper must be loaded before design -->
+    <script src="{{url_for('static', filename='js/picker.js') }}"></script>
+    <script src="{{url_for('static', filename='js/helper.js') }}"></script>
+    <script src="{{url_for('static', filename='js/design.js') }}"></script>
+  </body>
+</html>

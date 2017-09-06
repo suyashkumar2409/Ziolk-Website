@@ -5,4 +5,4 @@ from app import db
 
 @design_blueprint.route('/')
 def design():
-	return render_template('/design/main.html')
+	return render_template('/design/design.html')
