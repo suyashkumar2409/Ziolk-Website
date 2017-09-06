@@ -21,6 +21,8 @@ function SetFonts(fonts){
 				.attr("value", fonts.items[i].family)
 				.text(fonts.items[i].family));
 			}
+
+			// $('selectFont option[value="1"]').attr("selected",true);
 		}
 
 $(".toggleCaret").click(function (e){

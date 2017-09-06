@@ -93,3 +93,10 @@
 	height: 30px;
 }
 
+
+.tab-content{
+  /*max-width: 100%;*/
+  width: 110%;
+  /*display: inline-block;*/
+}
+
