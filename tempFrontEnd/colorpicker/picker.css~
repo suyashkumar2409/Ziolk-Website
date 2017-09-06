@@ -1,0 +1,27 @@
+* START - HTML5 Canvas Hex/RGB Color Picker */
+
+.hccp-outerdiv {
+display:inline;
+position:inherit;
+}
+
+.hccp-canvas {
+float:left;
+border:1px solid #aaaaaa;
+}
+
+.hccp-innerdiv {
+font-family:Courier,monospace;
+float:left;
+margin-left:15px;
+}
+
+.hccp-colorbar {
+width:150px;
+}
+
+.hccp-resetdiv {
+clear:both;
+}
+
+/* END - HTML5 Canvas Hex/RGB Color Picker */

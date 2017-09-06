@@ -12,18 +12,41 @@
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/picker.css">
   </head>
 
   <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
 
+				<div class="hccp-outerdiv">
+<canvas class="hccp-canvas" id="hccp-FindCanvasColor"></canvas>
+<div class="hccp-innerdiv">
+<br>
+<p>On Hover <span id="hccp-hoverColorFont">Color</span></p>
+<p class="hccp-colorbar" id="hccp-hoverColorBackground"> </p>
+<p>RGB: <input type="text" id="hccp-hoverColorRGB"></input></p>
+<p>HEX: <input type="text" id="hccp-hoverColorHEX"></input></p>
+<br>
+<p>On Click <span id="hccp-clickColorFont">Color</span></p>
+<p class="hccp-colorbar" id="hccp-clickColorBackground"> </p>
+<p>RGB: <input type="text" id="hccp-clickColorRGB"></input></p>
+<p>HEX: <input type="text" id="hccp-clickColorHEX"></input></p>
+</div>
+<br>
+<div class="hccp-resetdiv"></div>
+</div>
  	<div id="clip-path"></div>
 
     <div class="container">
+
 		<section id="typography">
 		  <div class="page-header">
 		    <h1>Design T-Shirt</h1>
 		  </div>
 		
+				<!-- **ColorPicker** -->
+
+										<!-- **ColorPicker** -->
+
 
 
 		<form>
@@ -110,7 +133,34 @@
 										</select>
 
 										<h6>Size</h6>
-										<select id="selectSize"></select>	
+										<input type="number" step="1" id="selectSize"></input>	
+									</div>
+
+									<div>
+										<h6>Color</h6>
+
+										<!-- **ColorPicker** -->
+
+										<div class="hccp-outerdiv">
+										<canvas class="hccp-canvas" id="hccp-FindCanvasColor"></canvas>
+										<div class="hccp-innerdiv">
+										<br>
+										<p>On Hover <span id="hccp-hoverColorFont">Color</span></p>
+										<p class="hccp-colorbar" id="hccp-hoverColorBackground"> </p>
+										<p>RGB: <input type="text" id="hccp-hoverColorRGB"></input></p>
+										<p>HEX: <input type="text" id="hccp-hoverColorHEX"></input></p>
+										<br>
+										<p>On Click <span id="hccp-clickColorFont">Color</span></p>
+										<p class="hccp-colorbar" id="hccp-clickColorBackground"> </p>
+										<p>RGB: <input type="text" id="hccp-clickColorRGB"></input></p>
+										<p>HEX: <input type="text" id="hccp-clickColorHEX"></input></p>
+										</div>
+										<br>
+										<div class="hccp-resetdiv"></div>
+										</div>
+
+										<!-- **ColorPicker** -->
+
 									</div>
 
 								</div>
@@ -215,6 +265,7 @@
     <script src="js/bootstrap.min.js"></script>    
 
 <!-- helper must be loaded before main -->
+    <script src="js/picker.js"></script>
     <script src="js/helper.js"></script>
     <script src="js/main.js"></script>
   </body>

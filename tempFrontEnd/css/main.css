@@ -79,7 +79,7 @@
 }
 
 #addText #selectFont, #selectSize{
-	max-width: 50%;
+	max-width: 40%;
 	display: inline-block;
 	margin-left: 5px;
 	max-height: 70%;
@@ -88,6 +88,8 @@
 }
 
 #addText #selectSize{
-	max-width: 20%;
+	max-width: 15%;
+	max-height: 100%;
+	height: 30px;
 }
 
