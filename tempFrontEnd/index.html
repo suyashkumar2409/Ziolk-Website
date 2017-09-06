@@ -7,79 +7,28 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>	
-	<script type="text/javascript" src="js/fabric.js"></script>
-	<script type="text/javascript" src="js/tshirtEditor.js"></script>
-	<script type="text/javascript" src="js/jquery.miniColors.min.js"></script>
-	
-    <!-- Le styles -->
     <link type="text/css" rel="stylesheet" href="css/jquery.miniColors.css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-	 <script type="text/javascript">
-	 </script>
-	 <style type="text/css">
-		 .footer {
-			padding: 70px 0;
-			margin-top: 70px;
-			border-top: 1px solid #E5E5E5;
-			background-color: whiteSmoke;
-			}			
-	      body {
-	        padding-top: 60px;	        
-	      }
-	      .color-preview {
-	      	border: 1px solid #CCC;
-	      	margin: 2px;
-	      	zoom: 1;
-	      	vertical-align: top;
-	      	display: inline-block;
-	      	cursor: pointer;
-	      	overflow: hidden;
-	      	width: 20px;
-	      	height: 20px;
-	      }
-	      .rotate {  
-		    -webkit-transform:rotate(90deg);
-		    -moz-transform:rotate(90deg);
-		    -o-transform:rotate(90deg);
-		    /* filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1.5); */
-		    -ms-transform:rotate(90deg);		   
-		}		
-		.Arial{font-family:"Arial";}
-		.Helvetica{font-family:"Helvetica";}
-		.MyriadPro{font-family:"Myriad Pro";}
-		.Delicious{font-family:"Delicious";}
-		.Verdana{font-family:"Verdana";}
-		.Georgia{font-family:"Georgia";}
-		.Courier{font-family:"Courier";}
-		.ComicSansMS{font-family:"Comic Sans MS";}
-		.Impact{font-family:"Impact";}
-		.Monaco{font-family:"Monaco";}
-		.Optima{font-family:"Optima";}
-		.HoeflerText{font-family:"Hoefler Text";}
-		.Plaster{font-family:"Plaster";}
-		.Engagement{font-family:"Engagement";}
 
-	 </style>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
 
   <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
 
- 
+ 	<div id="clip-path"></div>
 
     <div class="container">
 		<section id="typography">
 		  <div class="page-header">
-		    <h1>Customize T-Shirt</h1>
+		    <h1>Design T-Shirt</h1>
 		  </div>
 		
-		  <!-- Headings & Paragraph Copy -->
+
+
+		<form>
+
+		  <!-- Mid Section -->
 		<div class="row">			
 		    
 		    <div class="span3">
@@ -91,17 +40,36 @@
 				  </ul> -->
 					<div class="tab-content">
 				    	<div>
-				     		<div class="well">
-					      		<select id="">                        
-				                    <option value="1" selected="selected">Short Sleeve Shirts</option>
-				                    <option value="2">Long Sleeve Shirts</option>                                        
-				                    <option value="3">Hoodies</option>                    
-				                    <option value="4">Tank tops</option>
-								</select>				
-					      	</div>
+				     		<div class="well left-panel">
+<!-- 
+				     		<button >Collapsible</button>
+
+							<div id="demo" class="collapse">
+							Lorem ipsum dolor text....
+							</div> -->
+
+							<div class="poppableClick">
+
+				    		<h5>Select Product</h5>
+					      		<div class = "poppable">
+
+						      		<select id="selectProduct">                        
+					                    <option value="1" selected="selected">Short Sleeve Shirts</option>
+					                    <option value="2">Long Sleeve Shirts</option>                                        
+					                    <option value="3">Hoodies</option>                    
+					                    <option value="4">Tank tops</option>
+									</select>	
+
+								</div>		
+
+							</div>	
+					      	<!-- </div>
 							<div class="well">
-								<h5>T-Shirt Color</h5>
-								<ul class="nav">
+							 -->	
+							<h5 data-toggle="collapse" data-target="#selectColor" class="toggleCaret">
+								<span class="caret-right"></span>T-Shirt Color </h5>
+								<div  id="selectColor" class="collapse">
+								<ul class="nav" >
 									<li class="color-preview" title="White" style="background-color:#ffffff;"></li>
 									<li class="color-preview" title="Dark Heather" style="background-color:#616161;"></li>
 									<li class="color-preview" title="Gray" style="background-color:#f0f0f0;"></li>
@@ -124,6 +92,37 @@
 									<li class="color-preview" title="Heather Navy" style="background-color:#3469b7;"></li>							
 									<li class="color-preview" title="Cherry Red" style="background-color:#c50404;"></li>
 								</ul>
+								</div>
+								
+							<h5 data-toggle="collapse" data-target="#addText" class="toggleCaret">
+								<span class="caret-right"></span>Add Text </h5>
+								
+
+								<div  id="addText" class="collapse">
+									<input type="text" style="max-width:60%">
+									<button>Add Text</button>
+
+									<br><br>
+
+									<div>
+										<h6>Font</h6>
+										<select id="selectFont"> 
+										</select>
+
+										<h6>Size</h6>
+										<select id="selectSize"></select>	
+									</div>
+
+								</div>
+							
+							<h5 data-toggle="collapse" data-target="#selectColor" class="toggleCaret">
+								<span class="caret-right"></span>Upload Image </h5>
+							
+							<h5 data-toggle="collapse" data-target="#selectColor" class="toggleCaret">
+								<span class="caret-right"></span>Name & Number </h5>
+							
+
+
 							</div>			      
 				     	</div>				   
 				    </div>				      
@@ -201,26 +200,22 @@
 			</div>
 		
 		</div>
-		
+	</form>
 	</section>
 </div>
 
 
 <!-- /container -->
     
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>	
+	<script type="text/javascript" src="js/fabric.js"></script>
+	<script type="text/javascript" src="js/tshirtEditor.js"></script>
+	<script type="text/javascript" src="js/jquery.miniColors.min.js"></script>
+	
     <script src="js/bootstrap.min.js"></script>    
-    <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35639689-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+<!-- helper must be loaded before main -->
+    <script src="js/helper.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
