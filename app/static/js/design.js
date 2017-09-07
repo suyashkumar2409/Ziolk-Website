@@ -30,3 +30,11 @@ $(".toggleCaret").click(function (e){
 	console.log($(this).first())
 })
 
+// Click front back left right
+$('.custom-nav-pills li').mousedown(function(e){
+	$('.custom-nav-pills li').each(function(i, obj){
+		$(this).removeClass("pill-selected").addClass("pill-unselected");
+	})
+
+	$(this).toggleClass("pill-unselected pill-selected")
+});

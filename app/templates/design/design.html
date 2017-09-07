@@ -118,8 +118,10 @@
 
 									<div>
 										<h6>Style</h6>
-										<span class="custom-toggeable-normal">B</span>
-										<span class="custom-toggeable-normal">I</span>
+										<p>
+										<button style="vertical-align: middle">B</button>
+										<button >I</button>
+										</p>
 
 									</div>
 
@@ -138,18 +140,6 @@
 
 										<!-- **ColorPicker** -->
 
-
-										<!-- **ColorPicker** -->
-
-										<div class="color-picker">
-
-										<p class="hccp-colorbar" id="hccp-clickColorBackground" style="color:white; background-color: white;"> |</p>
-											
-										<canvas class="hccp-canvas hccp-FindCanvasColor"></canvas>
-
-										</div>
-
-										<!-- **ColorPicker** -->
 									</div>
 
 
@@ -211,10 +201,42 @@
 			</div>	
 			
 			<div class="span3">
-		  		<div class="well">
-			      	<h3>Total Prices</h3>
+		  		<div class="well right-panel">
+
+					<button type="button" class="btn btn-large btn-block btn-warning" id="saveDesign">Save</button>
+					
+					<ul class="nav nav-pills custom-nav-pills">
+					    <li class="pill-unselected"><a>Front</a></li>
+					    <li class="pill-unselected"><a>Back</a></li>
+					    <li class="pill-unselected"><a>Left</a></li>
+					    <li class="pill-unselected"><a>Right</a></li>
+					</ul>
+
+					<h5 data-toggle="collapse" data-target="#selectQuantity" class="toggleCaret">
+								<span class="caret-right"></span>Quantities & Sizes</h5>
+
+					<div  id="selectQuantity" class="collapse">
+						<ul class="nav nav-pills sizes-list-names">
+					    <li >S<input type="number" step="1"></input></li>
+					    <li >M<input type="number" step="1"></input></li>
+					    <li >L<input type="number" step="1"></input></li>
+					    <li >XL<input type="number" step="1"></input></li>
+					    <li >XXL<input type="number" step="1"></input></li>
+
+						</ul>
+
+						<h6>Total Pieces</h6> <input id="disabled-total" type="number" step="1" disabled></input>
+					</div>
+
+					<h6 >Total Cost <input id="disabled-total" type="number" step="1" disabled></input></p>
+
+
+					<br>
+
+					<h6><input id="disabled-total" type="number" step="1" disabled></input> per Unit</h6>
+
 	    		</div>		
-			    <p>
+			    <!-- <p>
 			    	<table class="table">
 			      		<tr>
 			      			<td>Short Sleeve</td>
@@ -234,8 +256,8 @@
 			      		</tr>
 			      	</table>			
 			    </p>
-				
-				<button type="button" class="btn btn-large btn-block btn-success" name="addToTheBag" id="addToTheBag">Add to bag <i class="icon-briefcase icon-white"></i></button>
+				 -->
+				<button type="button" class="btn btn-large btn-block btn-success" name="addToTheBag" id="addToTheBag">Add to Cart <i class="icon-shopping-cart icon-white"></i></button>
 			    </div>		      		       		   
 			</div>
 		

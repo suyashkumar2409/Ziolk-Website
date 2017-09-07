@@ -100,3 +100,20 @@
   /*display: inline-block;*/
 }
 
+.pill-selected{
+	background: white; 
+}
+
+.sizes-list-names li{
+	/*margin-left: 10	px;*/
+	margin-right: 20px;
+}
+
+.sizes-list-names li input{
+	margin-left: 5px;
+	max-width: 50px;
+}
+
+#disabled-total{
+	max-width: 50px;
+}
