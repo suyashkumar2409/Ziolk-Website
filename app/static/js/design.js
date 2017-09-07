@@ -26,7 +26,7 @@ function SetFonts(fonts){
 		}
 
 $(".toggleCaret").click(function (e){
-	$(this).find(':first-child').toggleClass("caret-right caret")
+	$(this).find('caret-right').toggleClass("caret-right caret")
 	console.log($(this).first())
 })
 
