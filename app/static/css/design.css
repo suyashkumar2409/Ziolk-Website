@@ -1,4 +1,6 @@
-
+.upper-canvas{
+  border: 1px solid black;
+}
 footer, header {
   display: flex;
   position: relative;
