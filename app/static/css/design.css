@@ -1,4 +1,117 @@
-.footer {
+
+footer, header {
+  display: flex;
+  position: relative;
+  height: 100px;
+  /*width: 100%;*/
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  //box-sizing: border-box;
+  //background: white;
+  //border: 1px solid black;
+}
+
+header {
+  top: 0;
+  z-index: 2;
+
+}
+
+header.well{
+	width: 400px;
+	height: 0px;
+	margin: 0 auto;
+}
+
+
+ul#side, ul#top {
+  height: 40px;
+  /*border: 1px solid black;*/
+  /*border-radius: 7px;*/
+  margin: 0 auto;
+}
+ul#side li, ul#top li {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  width: 100px;
+  height: 40px;
+  box-sizing: border-box;
+  /*border-right: 1px solid #888;*/
+  transition: background 0.5s;
+  margin: 0 auto;
+  margin-left: 5px;
+}
+
+
+ul#side li:hover, ul#top li:hover {
+  background: #aaa;
+  cursor: pointer;
+}
+
+li#zoom article::before {
+  width: 15px;
+  height: 15px;
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: -15px;
+  box-sizing: border-box;
+  border-bottom: 15px solid white;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  color:yellow;
+}
+
+li#zoom article {
+  display: none;
+  width: auto;
+  height: auto;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: -20px;
+  background: white;
+  box-sizing: border-box;
+  padding: 5px 20px;
+  border: 1px solid #eee;
+  border-radius: 7px;
+  box-shadow: 0 0 10px #eee;
+  cursor: default;
+  z-index: 3;
+  color: black !important;
+}
+.poppable {
+  display: none;
+  width: 320px;
+  height: auto;
+  position: absolute;
+  margin-top: -70px;
+  margin-left: 20px;
+  background: white;
+  box-sizing: border-box;
+  padding: 30px;
+  border: 1px solid #eee;
+  border-radius: 7px;
+  box-shadow: 0 0 10px #eee;
+  cursor: default;
+  z-index: 3;
+}
+.poppable::before {
+  width: 30px;
+  height: 30px;
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 30px;
+  box-sizing: border-box;
+  border-right: 15px solid white;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+		.footer {
 			padding: 70px 0;
 			margin-top: 70px;
 			border-top: 1px solid #E5E5E5;

@@ -17,6 +17,7 @@
 
   <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
 
+
  	<div id="clip-path"></div>
 
     <div class="container">
@@ -26,9 +27,19 @@
 		    <h1>Design T-Shirt</h1>
 		  </div>
 		
-				
+	<header>
+      <ul id="top">
+        <li class="topselector well">Preview</li>
+        <li class="topselector well">Undo</li>
+        <li class="topselector well">Redo</li>
+        <li class="topselector well" id="zoom">
+          Zoom
+          <article><input type="range" name="zoomselector" value="1" min="1" max="2" step="0.1"></article>
+        </li>
+      </ul>
+    </header>
 
-
+    <br><br><br>
 		<form>
 
 		  <!-- Mid Section -->
@@ -53,8 +64,8 @@
 
 							<div class="poppableClick">
 
-				    		<h5>Select Product</h5>
-					      		<div class = "poppable">
+				    		<h5 class="ops">Select Product</h5>
+					      		<article class = "poppable">
 
 						      		<select id="selectProduct">                        
 					                    <option value="1" selected="selected">Short Sleeve Shirts</option>
@@ -63,15 +74,16 @@
 					                    <option value="4">Tank tops</option>
 									</select>	
 
-								</div>		
+								</article>		
 
 							</div>	
 					      	<!-- </div>
 							<div class="well">
 							 -->	
-							<h5 data-toggle="collapse" data-target="#selectColor" class="toggleCaret">
-								<span class="caret-change caret-right"></span>T-Shirt Color </h5>
-								<div  id="selectColor" class="collapse">
+							<h5 class="ops">T-Shirt Color </h5>
+								<article class="poppable">
+							<h5 class="ops">T-Shirt Color </h5>
+
 								<ul class="nav" >
 									<li class="color-preview" title="White" style="background-color:#ffffff;"></li>
 									<li class="color-preview" title="Dark Heather" style="background-color:#616161;"></li>
@@ -95,13 +107,14 @@
 									<li class="color-preview" title="Heather Navy" style="background-color:#3469b7;"></li>							
 									<li class="color-preview" title="Cherry Red" style="background-color:#c50404;"></li>
 								</ul>
-								</div>
+								</article>
 								
-							<h5 data-toggle="collapse" data-target="#addText" class="toggleCaret">
-								<span class="caret-change caret-right"></span>Add Text </h5>
+							<h5 class="ops">Add Text </h5>
 								
 
-								<div  id="addText" class="collapse">
+								<article class="poppable"  id="addText">
+								<h5 class="ops">Add Text </h5>
+
 									<input type="text" style="max-width:60%">
 									<button>Add Text</button>
 
@@ -143,13 +156,11 @@
 									</div>
 
 
-								</div>
+								</article>
 							
-							<h5 data-toggle="collapse" data-target="#selectColor" class="toggleCaret">
-								<span class="caret-change caret-right"></span>Upload Image </h5>
+							<h5 class="ops">Upload Image </h5>
 							
-							<h5 data-toggle="collapse" data-target="#selectColor" class="toggleCaret">
-								<span class="caret-change caret-right"></span>Name & Number </h5>
+							<h5 class="ops">Name & Number </h5>
 							
 
 
