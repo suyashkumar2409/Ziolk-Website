@@ -25,13 +25,13 @@ header.well{
 }
 
 
-ul#side, ul#top {
+ul#side, ul#top, ul#bottom {
   height: 40px;
   /*border: 1px solid black;*/
   /*border-radius: 7px;*/
   margin: 0 auto;
 }
-ul#side li, ul#top li {
+ul#side li, ul#top li , #bottom li{
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -82,13 +82,26 @@ li#zoom article {
   z-index: 3;
   color: black !important;
 }
+
+.ops{
+	cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
 .poppable {
   display: none;
   width: 320px;
   height: auto;
   position: absolute;
   margin-top: -70px;
-  margin-left: 20px;
+  margin-left: 40px;
   background: white;
   box-sizing: border-box;
   padding: 30px;
@@ -173,6 +186,11 @@ li#zoom article {
     vertical-align: top;
     width: 0;
     margin:5px 10px 0px 0px;
+
+}
+
+.left-panel{
+	width: 40%;
 
 }
 

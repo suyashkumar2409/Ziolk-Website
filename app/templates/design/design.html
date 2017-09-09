@@ -29,11 +29,11 @@
 		
 	<header>
       <ul id="top">
-        <li class="topselector well">Preview</li>
-        <li class="topselector well">Undo</li>
-        <li class="topselector well">Redo</li>
+        <li class="topselector well"><h5>Preview</h5></li>
+        <li class="topselector well"><h5>Undo</h5></li>
+        <li class="topselector well"><h5>Redo</h5></li>
         <li class="topselector well" id="zoom">
-          Zoom
+          <h5>Zoom</h5>
           <article><input type="range" name="zoomselector" value="1" min="1" max="2" step="0.1"></article>
         </li>
       </ul>
@@ -66,7 +66,9 @@
 
 				    		<h5 class="ops">Select Product</h5>
 					      		<article class = "poppable">
-
+					      			<button type="button" class="close" aria-label="Close">
+									  <span aria-hidden="true">&times;</span>
+									</button>
 						      		<select id="selectProduct">                        
 					                    <option value="1" selected="selected">Short Sleeve Shirts</option>
 					                    <option value="2">Long Sleeve Shirts</option>                                        
@@ -80,10 +82,15 @@
 					      	<!-- </div>
 							<div class="well">
 							 -->	
+							<div class="poppableClick">
+
 							<h5 class="ops">T-Shirt Color </h5>
 								<article class="poppable">
-							<h5 class="ops">T-Shirt Color </h5>
 
+							<h5 class="ops">T-Shirt Color </h5>
+							<button type="button" class="close" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+							</button>
 								<ul class="nav" >
 									<li class="color-preview" title="White" style="background-color:#ffffff;"></li>
 									<li class="color-preview" title="Dark Heather" style="background-color:#616161;"></li>
@@ -108,13 +115,18 @@
 									<li class="color-preview" title="Cherry Red" style="background-color:#c50404;"></li>
 								</ul>
 								</article>
-								
+							
+							</div>
+							<div class="poppableClick">
+
 							<h5 class="ops">Add Text </h5>
 								
 
 								<article class="poppable"  id="addText">
 								<h5 class="ops">Add Text </h5>
-
+									<button type="button" class="close" aria-label="Close">
+									  <span aria-hidden="true">&times;</span>
+									</button>
 									<input type="text" style="max-width:60%">
 									<button>Add Text</button>
 
@@ -158,11 +170,17 @@
 
 								</article>
 							
+							</div>
+							<div class="poppableClick">
+
 							<h5 class="ops">Upload Image </h5>
 							
+							</div>
+							<div class="poppableClick">
+
 							<h5 class="ops">Name & Number </h5>
 							
-
+						</div>
 
 							</div>			      
 				     	</div>				   
@@ -275,6 +293,13 @@
 		</div>
 	</form>
 	</section>
+
+	<ul id="bottom">
+        <li class="bottomselector well"><h5>Front</h5></li>
+        <li class="bottomselector well"><h5>Back</h5></li>
+        <li class="bottomselector well"><h5>Left</h5></li>
+        <li class="bottomselector well"><h5>Right</h5></li>
+      </ul>
 </div>
 
 

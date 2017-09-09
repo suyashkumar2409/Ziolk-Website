@@ -1,17 +1,34 @@
 // Reverse Engineered Content
+
+function toggleArticle(self)
+{
+	if(! self.hasClass('selected'))
+	{
+		console.log('not selected');
+		  $(".ops").removeClass("selected");
+		  self.addClass("selected");
+		  $(".poppable").slideUp('fast');
+		  self.parent().children(".poppable").slideDown('fast');
+		  // console.log($(self).parent().children('.poppable'));
+	}
+	else
+	{
+		console.log('here');
+	  $(".ops").removeClass("selected");
+  		$(".poppable").slideUp('fast');
+	}
+}
+
 $(".ops").click(function(){
 	console.log('happening');
-  $(".ops").removeClass("selected");
-  $(this).addClass("selected");
-  $(".poppable").slideUp('fast');
-  $(this).children(".poppable").slideDown('fast');
+
+	toggleArticle($(this));	
 });
 
-
-$(".ops .selected").click(function(){
-  $(".ops").removeClass("selected");
-  $(".poppable").slideUp('fast');
-});
+$(".close").click(function()
+{
+	toggleArticle($(this).parent().children('selected'));
+})
 
 
 $("ul#ops li .close").click(function(e){
