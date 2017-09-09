@@ -13,7 +13,7 @@ img.onload = function()
 		canvas.width = 258;
 		canvas.height = 235;
 
-		// $('#hccp-clickColorBackground').color = $('.well').parent().backgroundColor;
+		// $('#text-color-bar').color = $('.well').parent().backgroundColor;
 
 		// var canvasLeftOffset = canvas.offsetLeft;
 		// var canvasTopOffset = canvas.offsetTop;
@@ -52,7 +52,7 @@ img.onload = function()
 
 		// console.log(x + " " + y);
 		var img_data = context.getImageData(x, y, 1, 1).data;
-		// console.log(img_data);
+		console.log(img_data);
 		// console.log('img_data');
 
 		var R = img_data[0];
@@ -61,11 +61,12 @@ img.onload = function()
 		var rgb = 'rgb('+R+','+G+','+B+')';
 		var hex = RGBtoHex(R,G,B);
 		// document.getElementById('hccp-clickColorFont').style.color = hex;
-		// console.log($(this).parent().find('#hccp-clickColorBackground'));
-		$(this).parent().find('#hccp-clickColorBackground').css("background-color", hex);
-		$(this).parent().find('#hccp-clickColorBackground').css("color", hex);
-		// document.getElementById('hccp-clickColorBackground').style.backgroundColor = hex;
-		// document.getElementById('hccp-clickColorBackground').style.color = hex;
+		// console.log($(this).parent().find('#text-color-bar'));
+		$(this).parent().find('#text-color-bar').css("background-color", hex);
+		$(this).parent().find('#text-color-bar').css("color", hex);
+		$(this).parent().find('#text-color-bar').trigger("click"); //this is trigger for text change
+		// document.getElementById('text-color-bar').style.backgroundColor = hex;
+		// document.getElementById('text-color-bar').style.color = hex;
 		// document.getElementById('hccp-clickColorRGB').value = rgb;
 		// document.getElementById('hccp-clickColorHEX').value = hex;
 

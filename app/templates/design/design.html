@@ -158,7 +158,7 @@
 
 										<div class="color-picker">
 
-										<p class="hccp-colorbar" id="hccp-clickColorBackground" style="color:white; background-color: white;"> |</p>
+										<p id="text-color-bar" class="hccp-colorbar"  style="color:white; background-color: white;"> |</p>
 											
 										<canvas class="hccp-canvas hccp-FindCanvasColor"></canvas>
 
@@ -325,6 +325,7 @@
 
     <script type="text/javascript" src="{{url_for('static', filename='js/fabric-custom.min.js') }}"></script>
 	
+    <script src="{{url_for('static', filename='js/canvas.js') }}"></script>
  	
 	<script type="text/javascript" src="{{url_for('static', filename='js/jquery.miniColors.min.js') }}"></script>
 	
@@ -335,6 +336,5 @@
     <script src="{{url_for('static', filename='js/helper.js') }}"></script>
     <script src="{{url_for('static', filename='js/design.js') }}"></script>
    
-    <script src="{{url_for('static', filename='js/canvas.js') }}"></script>
   </body>
 </html>

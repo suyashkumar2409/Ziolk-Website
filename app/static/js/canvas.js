@@ -26,6 +26,8 @@ document.activecanvas = canvasfront;
     document.activecanvas.setActiveObject(thisObj);
     thisObj.center();
     thisObj.setCoords();
+    $(this).parent().find('#text-color-bar').trigger("click"); //this is trigger for text change
+    
     //console.log(thisObj.canvas.lowerCanvasEl.id);
     document.activecanvas.renderAll();
   }
