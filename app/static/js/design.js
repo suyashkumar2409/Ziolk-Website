@@ -1,10 +1,15 @@
 // Reverse Engineered Content
+$('.color-preview').click(function(){
+		   var color = $(this).css("background-color");
+		   document.getElementById("shirtDiv").style.backgroundColor = color;		   
+	   });
+
 
 function toggleArticle(self)
 {
 	if(! self.hasClass('selected'))
 	{
-		console.log('not selected');
+		// console.log('not selected');
 		  $(".ops").removeClass("selected");
 		  self.addClass("selected");
 		  $(".poppable").slideUp('fast');
@@ -13,14 +18,14 @@ function toggleArticle(self)
 	}
 	else
 	{
-		console.log('here');
+		// console.log('here');
 	  $(".ops").removeClass("selected");
   		$(".poppable").slideUp('fast');
 	}
 }
 
 $(".ops").click(function(){
-	console.log('happening');
+	// console.log('happening');
 
 	toggleArticle($(this));	
 });

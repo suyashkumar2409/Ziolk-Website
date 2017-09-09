@@ -119,7 +119,7 @@
 							</div>
 							<div class="poppableClick">
 
-							<h5 class="ops">Add Text </h5>
+							<h5 id="textops" class="ops">Add Text </h5>
 								
 
 								<article class="poppable"  id="addText">
@@ -127,8 +127,8 @@
 									<button type="button" class="close" aria-label="Close">
 									  <span aria-hidden="true">&times;</span>
 									</button>
-									<input type="text" style="max-width:60%">
-									<button>Add Text</button>
+									<input type="text" id="texttoadd" style="max-width:60%">
+									<button id="addtext" type="button">Add Text</button>
 
 									<br><br>
 
@@ -144,8 +144,9 @@
 									<div>
 										<h6>Style</h6>
 										<p>
-										<button style="vertical-align: middle">B</button>
-										<button >I</button>
+										<button id="bold" style="vertical-align: middle">B</button>
+										<button id="italic" >I</button>
+										<button id="textDecoration" >D</button>
 										</p>
 
 									</div>
@@ -218,11 +219,26 @@
 					 		<a class="btn" href="#" rel="tooltip" data-placement="top" data-original-title="Font Border Color"><input type="hidden" id="text-strokecolor" class="color-picker" size="7" value="#000000"></a>
 							
 						</div>
-
+<!-- ********* Shirt Canvas is in here ************* -->
 						<div id="shirtDiv" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
 							<img id="tshirtFacing" src="{{url_for('static', filename='img/crew_front.png') }}"></img>
 							<div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">					
-								<canvas id="tcanvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>
+								<div id="front" style="display: none">
+        <!--label>[FRONT SIDE]<br>[T-Shirt Image here.]<br>[The inner box is the canvas.]</label-->
+        <canvas id="canvasfront" width="200" height="300"></canvas>
+      </div>
+      <div id="back" style="display: none">
+        <label>[BACK SIDE]<br>[T-Shirt Image here.]<br>[The inner box is the canvas.]</label>
+        <canvas id="canvasback" width="200" height="300"></canvas>
+      </div>
+      <div id="left" style="display: none">
+        <label>[LEFT SIDE]<br>[T-Shirt Image here.]<br>[The inner box is the canvas.]</label>
+        <canvas id="canvasleft" width="150" height="150"></canvas>
+      </div>
+      <div id="right" style="display: none">
+        <label>[RIGHT SIDE]<br>[T-Shirt Image here.]<br>[The inner box is the canvas.]</label>
+        <canvas id="canvasright" width="150" height="150"></canvas>
+      </div>
 							</div>
 						</div>
 					</div>
@@ -306,8 +322,10 @@
 <!-- /container -->
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>	
-	<script type="text/javascript" src="{{url_for('static', filename='js/fabric.js') }}"></script>
-	<script type="text/javascript" src="{{url_for('static', filename='js/tshirtEditor.js') }}"></script>
+
+    <script type="text/javascript" src="{{url_for('static', filename='js/fabric-custom.min.js') }}"></script>
+	
+ 	
 	<script type="text/javascript" src="{{url_for('static', filename='js/jquery.miniColors.min.js') }}"></script>
 	
     <script src="{{url_for('static', filename='js/bootstrap.min.js') }}"></script>    
@@ -316,5 +334,7 @@
     <script src="{{url_for('static', filename='js/picker.js') }}"></script>
     <script src="{{url_for('static', filename='js/helper.js') }}"></script>
     <script src="{{url_for('static', filename='js/design.js') }}"></script>
+   
+    <script src="{{url_for('static', filename='js/canvas.js') }}"></script>
   </body>
 </html>
