@@ -26,10 +26,22 @@ document.activecanvas = canvasfront;
     document.activecanvas.setActiveObject(thisObj);
     thisObj.center();
     thisObj.setCoords();
-    $(this).parent().find('#text-color-bar').trigger("click"); //this is trigger for text change
+    // document.activecanvas.renderAll();
     
+    var hex = $('#text-color-bar').css('backgroundColor'); //this is trigger for text change
+    changeColorActive(thisObj, hex);
+    console.log(hex);
     //console.log(thisObj.canvas.lowerCanvasEl.id);
     document.activecanvas.renderAll();
+  }
+
+  function changeColorActive(active, hex)
+  {
+    if(active != null)
+    {
+      active.set('fill', hex);
+      document.activecanvas.renderAll();
+    }
   }
 
   //  //sets the active object (see getLayer)

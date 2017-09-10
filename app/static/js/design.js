@@ -111,17 +111,3 @@ $('.custom-nav-pills li').mousedown(function(e){
 
 	$(this).toggleClass("pill-unselected pill-selected")
 });
-
-$("#text-color-bar").click(function() {
-	console.log(canvasfront.getActiveObject());
-	var active = document.activecanvas.getActiveObject();
-    if(active != null)
-    {
-	    // console.log($("#text-color-bar").css('backgroundColor'));
-	    
-	    active.set('fill',$("#text-color-bar").css('background-color'));
-	    document.activecanvas.renderAll();
-	    // console.log($(this).css('backgroundColor'));
-	    // console.log($("#text-color-bar").css('backgroundColor'));
-	}
-});

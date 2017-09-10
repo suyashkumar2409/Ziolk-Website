@@ -64,7 +64,8 @@ img.onload = function()
 		// console.log($(this).parent().find('#text-color-bar'));
 		$(this).parent().find('#text-color-bar').css("background-color", hex);
 		$(this).parent().find('#text-color-bar').css("color", hex);
-		$(this).parent().find('#text-color-bar').trigger("click"); //this is trigger for text change
+		
+		changeColorActive(document.activecanvas.getActiveObject() , hex);
 		// document.getElementById('text-color-bar').style.backgroundColor = hex;
 		// document.getElementById('text-color-bar').style.color = hex;
 		// document.getElementById('hccp-clickColorRGB').value = rgb;
