@@ -74,8 +74,7 @@ $("li#zoom").click(function(){
 $(document).ready(function(){
 	(function (){
 			
-		
-		var apiKey = "AIzaSyAyRpungWO-WbGigyZL0SbBEMj0H40Rvbg";	
+		var apiKey = "AIzaSyDBQLiWr7M6982EiWDayj2waQvh_O9GDqU";	
 		// var apiKey = loadJSON('js/keys.json') ['google-fonts']
 		var script = document.createElement('script');
 		script.src = 'https://www.googleapis.com/webfonts/v1/webfonts?key=' + apiKey + '&callback=SetFonts';
@@ -86,13 +85,50 @@ $(document).ready(function(){
 })
 
 function SetFonts(fonts){
-
+			var linkStr = "";
+			var toBePushed = false;
 			for (var i = 0; i < fonts.items.length; i++) {
 				$('#selectFont')
 				.append($("<option></option>")
 				.attr("value", fonts.items[i].family)
+				.attr("style", "font-family:" + fonts.items[i].family)
 				.text(fonts.items[i].family));
+
+				if(i%30 == 0)
+				{
+					if (i!= 0)	
+					{
+						linkStr = linkStr + fonts.items[i].family + ">";
+						$("head")
+						.append($(linkStr));
+
+						console.log(linkStr);
+
+						toBePushed = false;
+					}
+					linkStr = '<link href="https://fonts.googleapis.com/css?family=';
+					if(i==0)
+					{
+						toBePushed = true;
+						linkStr = linkStr + fonts.items[i].family + '|';
+					}
+				}
+				else
+				{
+					toBePushed = true;
+					linkStr = linkStr + fonts.items[i].family + '|';
+				}
+
 			}
+
+			if(toBePushed == true)
+			{
+				linkStr = linkStr + ">";
+				$("head").append($(linkStr));
+						console.log(linkStr);
+				
+			}
+
 
 			// $('selectFont option[value="1"]').attr("selected",true);
 		}

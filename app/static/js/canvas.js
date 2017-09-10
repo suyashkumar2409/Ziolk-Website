@@ -145,12 +145,16 @@ document.activecanvas = canvasfront;
 // sets values after selection
   function objectops(object) {
     if(object.type == "i-text") {
-      $("#textops").trigger('click');
+
+      if(! $("#textops").hasClass('selected') )
+        $("#textops").trigger('click');
+      console.log($("#textops article #selectSize"));
       // $(".formatobject.active").removeClass("active");
       // $("#textops .formatobject").addClass("active");
       $("#textops article #texttoadd").val(object.text);
       // $("#textops article input[name='updatestrokewidth']").val(object.strokeWidth);
       $("#textops article #hccp-clickColorBackground").val(object.fill);
+      $("#textops article input#selectSize").val(object.fontSize);
       // $("#textops article input[name='updatestroke']").val(object.stroke);
       // $("#textops article input[name='updateback']").val(object.backgroundColor);
     }
@@ -247,7 +251,7 @@ document.activecanvas = canvasfront;
 
   // //key operations
   $(document).keyup(function(e){
-    if (e.which==8) {
+    if (e.which==46) {
       console.log("hi");
       if (!($("input").is(":focus")))
         removeObject();
@@ -255,11 +259,23 @@ document.activecanvas = canvasfront;
     if (e.which == 66 && e.ctrlKey) $(".bold").trigger("click");
     if (e.which == 73 && e.ctrlKey) $(".italic").trigger("click");
     if (e.which == 85 && e.ctrlKey) $(".textDecoration").trigger("click");
-    if (e.which == 37) $(moveLeft(document.activecanvas.getActiveObject()));
-    if (e.which == 38) $(moveUp(document.activecanvas.getActiveObject()));
-    if (e.which == 39) $(moveRight(document.activecanvas.getActiveObject()));
-    if (e.which == 40) $(moveDown(document.activecanvas.getActiveObject()));
+    
   });
+
+  $(document).keydown(function(e){
+    if (e.which == 37) $(moveLeft(document.activecanvas.getActiveObject()));
+    else if (e.which == 38) $(moveUp(document.activecanvas.getActiveObject()));
+    else if (e.which == 39) $(moveRight(document.activecanvas.getActiveObject()));
+    else if (e.which == 40) $(moveDown(document.activecanvas.getActiveObject()));
+    else
+    {
+      return true;
+    }
+
+    return false;
+    // e.stopPropagation();
+
+  })
   //select operations
 
 // **** generic ops is important, but needs modified functions to work
