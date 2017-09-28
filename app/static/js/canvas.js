@@ -49,36 +49,37 @@ document.activecanvas = canvasfront;
     }
   }
 
-  //  //sets the active object (see getLayer)
-  // function layerOps(get) {
-  //   document.activecanvas.setActiveObject(document.activecanvas.item(get));
-  // }
+   //sets the active object (see getLayer)
+  function layerOps(get) {
+    document.activecanvas.setActiveObject(document.activecanvas.item(get));
+  }
 
-  //   //layer list of active canvas
-  // function getLayers() {
-  //   var objects = document.activecanvas.getObjects();
-  //   var layers = "";
-  //   for (var object in objects) {
-  //     var index = objects.length - object - 1;
-  //     object = objects[index];
-  //     var value;
-  //     if (object.type == "i-text") value = object.text;
-  //     else if (object.type == "image") value = object.width + " x " + object.height;
-  //     else value = "&nbsp;<span class=\"layercolor\" style=\"background: "+object.fill+"; border: 3px solid "+(object.stroke || "transparent")+"\"></span>";
-  //     if (object == document.activecanvas.getActiveObject())
-  //       var li = "<li class=\"active\">"
-  //     else
-  //       var li = "<li>"
-  //     layers += li;
-  //     layers += "<span onclick=\"toggleVisible("+index+",'set')\">"+toggleVisible(index,'get')+"</span>";
-  //     layers += "<label onclick=\"layerOps("+index+")\">" + object.type + " - " + value + "</label>";
-  //     layers += "<div class=\"moveLayer\">";
-  //     layers +=   "<a class=\"down\" onclick=\"moveBack("+index+")\">&#9652;</a>";
-  //     layers +=   "<a class=\"up\" onclick=\"moveFront("+index+")\">&#9652;</a>";
-  //     layers += "</div>\n";
-  //   }
-  //   $("#layers").html("<span>Layers on this side:</span>"+layers);
-  // }
+    //layer list of active canvas
+  function getLayers() {
+    console.log('getting laywers');
+    var objects = document.activecanvas.getObjects();
+    var layers = "";
+    for (var object in objects) {
+      var index = objects.length - object - 1;
+      object = objects[index];
+      var value;
+      if (object.type == "i-text") value = object.text;
+      else if (object.type == "image") value = object.width + " x " + object.height;
+      else value = "&nbsp;<span class=\"layercolor\" style=\"background: "+object.fill+"; border: 3px solid "+(object.stroke || "transparent")+"\"></span>";
+      if (object == document.activecanvas.getActiveObject())
+        var li = "<li class=\"active row\">"
+      else
+        var li = "<li class=\"row\">"
+      layers += li;
+      layers += "<span onclick=\"toggleVisible("+index+",'set')\" >"+toggleVisible(index,'get')+"</span>";
+      layers += "<label onclick=\"layerOps("+index+")\"class=\"span8\">" + object.type + " - " + value + "</label>";
+      layers += "<div class=\"moveLayer\">";
+      layers +=   "<a class=\"down\" onclick=\"moveBack("+index+")\">&#9652;</a>";
+      layers +=   "<a class=\"up\" onclick=\"moveFront("+index+")\">&#9652;</a>";
+      layers += "</div>\n";
+    }
+    $("#layers").html(layers);
+  }
 
   //moves object one layer up
   function moveFront(index) {
@@ -130,7 +131,7 @@ document.activecanvas = canvasfront;
         return "&#128065;";
       }
       else {
-        return "";
+        return "---";
       }
     }
     else if (method == "set") {
@@ -316,6 +317,10 @@ canvasfront.on('selection:cleared',function(){
     $(".ops").removeClass('selected');
   });
 
+  canvasfront.on('after:render', function() {
+    getLayers();
+  });
+
 
 
 
@@ -360,3 +365,7 @@ canvasfront.on('selection:cleared',function(){
   // $("#imgtoadd").change(function(){
   //   $("#addimg").trigger("click");
   // });
+
+  addText("hey");
+
+  addText("hello");
