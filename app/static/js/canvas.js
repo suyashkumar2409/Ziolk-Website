@@ -189,6 +189,8 @@ document.activecanvas = canvasfront;
     else object.set('fontWeight','normal');
     getTextFormatting(object,$(this),'fontWeight');
     document.activecanvas.renderAll();
+
+    return false;
   });
 
 
@@ -199,6 +201,9 @@ document.activecanvas = canvasfront;
     else object.set('fontStyle','normal');
     getTextFormatting(object,$(this),'fontStyle');
     document.activecanvas.renderAll();
+
+    return false;
+
   });
 
   //switch text decoration - underline, strikethrough etc
@@ -211,6 +216,9 @@ document.activecanvas = canvasfront;
     else object.set('textDecoration','underline');
     getTextFormatting(object,$(this),'textDecoration');
     document.activecanvas.renderAll();
+
+    return false;
+    
   });
 
    //change font
