@@ -20,19 +20,24 @@ document.activecanvas = canvasfront;
 
   //add a text object
   function addText(text) {
+    var hex = $('#text-color-bar').css('color'); //this is trigger for text change
+    console.log(hex);
+   
     var oText = new fabric.IText(text, {left: 100, top: 150, editable: false});
     document.activecanvas.add(oText);
     var thisObj = document.activecanvas.getObjects()[document.activecanvas.getObjects().length - 1];
     document.activecanvas.setActiveObject(thisObj);
     thisObj.center();
     thisObj.setCoords();
-    // document.activecanvas.renderAll();
-    
-    var hex = $('#text-color-bar').css('backgroundColor'); //this is trigger for text change
+
+   
     changeColorActive(thisObj, hex);
-    console.log(hex);
     //console.log(thisObj.canvas.lowerCanvasEl.id);
-    document.activecanvas.renderAll();
+    // document.activecanvas.renderAll();
+
+
+    $('#text-color-bar').css("background-color", hex);
+    $('#text-color-bar').css("color", hex);
   }
 
   function changeColorActive(active, hex)
@@ -145,16 +150,15 @@ document.activecanvas = canvasfront;
 // sets values after selection
   function objectops(object) {
     if(object.type == "i-text") {
-
+      console.log('bou');
       if(! $("#textops").hasClass('selected') )
         $("#textops").trigger('click');
-      console.log($("#textops article #selectSize"));
+      console.log($("p#text-color-bar.hccp-colorbar"));
       // $(".formatobject.active").removeClass("active");
       // $("#textops .formatobject").addClass("active");
-      $("#textops article #texttoadd").val(object.text);
+      $("input#texttoadd").val(object.text);
       // $("#textops article input[name='updatestrokewidth']").val(object.strokeWidth);
-      $("#textops article #hccp-clickColorBackground").val(object.fill);
-      $("#textops article input#selectSize").val(object.fontSize);
+      $("p#text-color-bar.hccp-colorbar").css({'color':object.fill, 'background-color':object.fill});
       // $("#textops article input[name='updatestroke']").val(object.stroke);
       // $("#textops article input[name='updateback']").val(object.backgroundColor);
     }
@@ -164,6 +168,18 @@ document.activecanvas = canvasfront;
   $("#addtext").click(function(){
     addText($("#texttoadd").val() || "text");
   });
+
+  $("#texttoadd").on('input', function(){
+    var text = $("#texttoadd").val() || "text";
+    var active = document.activecanvas.getActiveObject();
+    // console.log(active);
+    if(active != null)
+    {
+     active.set('text', text);
+     document.activecanvas.renderAll();
+   }
+    // console.log('changed');
+  })
 
   //text operations
   //make active text bold

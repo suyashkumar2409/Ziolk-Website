@@ -91,7 +91,7 @@ function SetFonts(fonts){
 				$('#selectFont')
 				.append($("<option></option>")
 				.attr("value", fonts.items[i].family)
-				.attr("style", "font-family:" + fonts.items[i].family)
+				.attr("style", "font-family:" + "Roboto Sans MS")//fonts.items[i].family)
 				.text(fonts.items[i].family));
 
 				if(i%30 == 0)
@@ -102,7 +102,7 @@ function SetFonts(fonts){
 						$("head")
 						.append($(linkStr));
 
-						console.log(linkStr);
+						// console.log(linkStr);
 
 						toBePushed = false;
 					}
@@ -147,3 +147,5 @@ $('.custom-nav-pills li').mousedown(function(e){
 
 	$(this).toggleClass("pill-unselected pill-selected")
 });
+
+
