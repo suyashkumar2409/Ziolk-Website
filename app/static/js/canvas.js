@@ -218,7 +218,7 @@ document.activecanvas = canvasfront;
     document.activecanvas.renderAll();
 
     return false;
-    
+
   });
 
    //change font
@@ -315,3 +315,48 @@ canvasfront.on('selection:cleared',function(){
     $(".poppable").slideUp('fast');
     $(".ops").removeClass('selected');
   });
+
+
+
+
+// ********* Image operations ****************//
+
+//add an image object
+  function addImage(url) {
+    var img = new fabric.Image.fromURL(url, function (oImg) {
+      oImg.scaleToWidth(225);
+      document.activecanvas.add(oImg);
+      var thisObj = document.activecanvas.getObjects()[document.activecanvas.getObjects().length - 1];
+      document.activecanvas.setActiveObject(thisObj);
+      thisObj.center();
+      thisObj.setCoords();
+      document.activecanvas.renderAll();
+      $("ul#ops li article").slideUp('fast');
+    });
+  }
+
+//render image from select
+  function renderImage(file) {
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      the_url = event.target.result;
+      addImage(the_url);
+    }
+    reader.readAsDataURL(file);
+  }
+
+  $("#addimg").click(function() {
+    if ($("#imgtoadd")[0].files.length != 0) {
+      for (var file in $("#imgtoadd")[0].files) {
+        renderImage($("#imgtoadd")[0].files[file]);
+      }
+    }
+    else {
+      alert("Please Select one or more files");
+      $("#imgtoadd").trigger("click");
+    }
+  });
+  //auto trigger image add
+  // $("#imgtoadd").change(function(){
+  //   $("#addimg").trigger("click");
+  // });
