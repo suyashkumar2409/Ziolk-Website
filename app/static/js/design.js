@@ -125,7 +125,7 @@ function SetFonts(fonts){
 			{
 				linkStr = linkStr + ">";
 				$("head").append($(linkStr));
-						console.log(linkStr);
+						// console.log(linkStr);
 				
 			}
 
@@ -148,4 +148,77 @@ $('.custom-nav-pills li').mousedown(function(e){
 	$(this).toggleClass("pill-unselected pill-selected")
 });
 
+function changeView(elem)
+{
+	console.log('ha[[[');
+	var imgName;
 
+	$('#frontcanvas').css('display','none');
+	$('#backcanvas').css('display','none');
+	$('#leftcanvas').css('display','none');
+	$('#rightcanvas').css('display','none');
+
+	if( elem == 'frontview')
+	{
+		imgName = 'crew_front.png';
+		document.activecanvas = canvasfront;
+		// console.log($('#canvasfront'));
+		$('#frontcanvas').css('display', 'visible');
+	}
+	else if( elem == 'backview')
+	{
+		imgName = 'crew_back.png';
+		document.activecanvas = canvasback;
+		$('#backcanvas').toggleClass('activeCanvas');
+
+	}
+	else if( elem == 'leftview')
+	{
+		imgName = 'crew_left.png';
+		document.activecanvas = canvasleft;
+		$('#leftcanvas').toggleClass('activeCanvas');
+
+	}
+	else if( elem == 'rightview')
+	{
+		imgName = 'crew_right.png';
+		document.activecanvas = canvasright;
+		$('#rightcanvas').toggleClass('activeCanvas');
+
+	}
+	else
+	{
+		imgName = 'crew_front.png';
+		document.activecanvas = canvasfront;
+	}
+		
+	console.log(document.activecanvas);	
+	getLayers();
+	var src = "/static/img/" + imgName;
+	$("#tshirtFacing").attr('src', src);
+
+	// updateCanvasView();
+}
+
+// console.log('hey');
+$("#frontview").click(function(){
+	changeView('frontview');
+});
+$("#backview").click(function(){
+	changeView('backview');
+});
+$("#leftview").click(function(){
+	changeView('leftview');
+});
+$("#rightview").click(function(){
+	changeView('rightview');
+});
+
+$(document).ready(function(){
+	$('#frontcanvas').css('display','visible');
+	$('#backcanvas').css('display','none');
+	$('#leftcanvas').css('display','none');
+	$('#rightcanvas').css('display','none');
+	console.log('yo');
+});
+  

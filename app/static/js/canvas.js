@@ -21,7 +21,7 @@ document.activecanvas = canvasfront;
   //add a text object
   function addText(text) {
     var hex = $('#text-color-bar').css('color'); //this is trigger for text change
-    console.log(hex);
+    // console.log(hex);
    
     var oText = new fabric.IText(text, {left: 100, top: 150, editable: false});
     document.activecanvas.add(oText);
@@ -56,7 +56,7 @@ document.activecanvas = canvasfront;
 
     //layer list of active canvas
   function getLayers() {
-    console.log('getting laywers');
+    // console.log('getting laywers');
     var objects = document.activecanvas.getObjects();
     var layers = "";
     for (var object in objects) {
@@ -162,10 +162,10 @@ document.activecanvas = canvasfront;
 // sets values after selection
   function objectops(object) {
     if(object.type == "i-text") {
-      console.log('bou');
+      // console.log('bou');
       if(! $("#textops").hasClass('selected') )
         $("#textops").trigger('click');
-      console.log($("p#text-color-bar.hccp-colorbar"));
+      // console.log($("p#text-color-bar.hccp-colorbar"));
       // $(".formatobject.active").removeClass("active");
       // $("#textops .formatobject").addClass("active");
       $("input#texttoadd").val(object.text);
@@ -377,6 +377,9 @@ canvasfront.on('selection:cleared',function(){
   //   $("#addimg").trigger("click");
   // });
 
+$(document).ready(function(){
   addText("hey");
-
   addText("hello");
+
+});
+  

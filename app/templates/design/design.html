@@ -31,12 +31,11 @@
 		
 	<header>
       <ul id="top">
-        <li class="topselector well"><h5>Preview</h5></li>
-        <li class="topselector well"><h5>Undo</h5></li>
-        <li class="topselector well"><h5>Redo</h5></li>
-        <li class="topselector well" id="zoom">
-          <h5>Zoom</h5>
-          <article><input type="range" name="zoomselector" value="1" min="1" max="2" step="0.1"></article>
+        <li class="topselector well" id="frontview" ><h5>Front</h5></li>
+        <li class="topselector well" id="backview" ><h5>Back</h5></li>
+        <li class="topselector well" id="leftview" ><h5>Left</h5></li>
+        <li class="topselector well" id="rightview" ><h5>Right</h5>
+          <!-- <article><input type="range" name="zoomselector" value="1" min="1" max="2" step="0.1"></article> -->
         </li>
       </ul>
     </header>
@@ -235,23 +234,20 @@
 							
 						</div>
 <!-- ********* Shirt Canvas is in here ************* -->
-						<div id="shirtDiv" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
-							<img id="tshirtFacing" src="{{url_for('static', filename='img/crew_front.png') }}"></img>
+						<div id="shirtDiv" class="page" style="width: 530px; height: 630px; background-color: rgb(255, 255, 255);">
+							<img id="tshirtFacing" src="/static/img/crew_front.png"></img>
 							<div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">					
-								<div id="front">
+								<div id="frontcanvas">
         <!--label>[FRONT SIDE]<br>[T-Shirt Image here.]<br>[The inner box is the canvas.]</label-->
         <canvas id="canvasfront" width="200" height="300"></canvas>
       </div>
-      <div id="back" style="display: none">
-        <label>[BACK SIDE]<br>[T-Shirt Image here.]<br>[The inner box is the canvas.]</label>
+      <div id="backcanvas" >
         <canvas id="canvasback" width="200" height="300"></canvas>
       </div>
-      <div id="left" style="display: none">
-        <label>[LEFT SIDE]<br>[T-Shirt Image here.]<br>[The inner box is the canvas.]</label>
+      <div id="leftcanvas" >
         <canvas id="canvasleft" width="150" height="150"></canvas>
       </div>
-      <div id="right" style="display: none">
-        <label>[RIGHT SIDE]<br>[T-Shirt Image here.]<br>[The inner box is the canvas.]</label>
+      <div id="rightcanvas" >
         <canvas id="canvasright" width="150" height="150"></canvas>
       </div>
 							</div>
@@ -340,13 +336,13 @@
 
 	</form>
 	</section>
-
+<!-- 
 	<ul id="bottom">
         <li class="bottomselector well"><h5>Front</h5></li>
         <li class="bottomselector well"><h5>Back</h5></li>
         <li class="bottomselector well"><h5>Left</h5></li>
         <li class="bottomselector well"><h5>Right</h5></li>
-      </ul>
+    </ul> -->
 </div>
 
 

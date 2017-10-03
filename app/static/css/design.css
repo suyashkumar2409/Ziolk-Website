@@ -322,3 +322,23 @@ li#zoom article {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+#shirtDiv{
+  position: absolute;
+}
+
+.layers-div{
+  position: relative;
+  top:-90px;
+}
+
+/*#frontcanvas, #backcanvas, #leftcanvas, #rightcanvas*/
+#drawingArea div{
+  display: none;
+}
+/*canvas{
+  display: 
+}
+*/.activeCanvas{
+  display: visible;
+}
