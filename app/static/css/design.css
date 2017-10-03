@@ -279,10 +279,10 @@ li#zoom article {
 
 */
 
-.up, .down {
+.up, .down, #closeLayer {
     position: relative;
     top: -25px;
-    left: 20px;
+    left: 0px;
     margin-right: 10px;
     font-size: 20px;
     height: 15px;
@@ -290,11 +290,20 @@ li#zoom article {
     display: block;
 
 }
+#closeLayer{
+  left:25px;
+  top:-40px;
+  cursor: pointer;
+}
+
+.singleLayer{
+  cursor: pointer;
+}
 
 .down {
     transform: rotate(180deg);
     top: 15px;
-    left:20px;
+    left:-2px;
 }
 
 

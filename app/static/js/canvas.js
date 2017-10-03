@@ -72,13 +72,24 @@ document.activecanvas = canvasfront;
         var li = "<li class=\"row\">"
       layers += li;
       layers += "<span onclick=\"toggleVisible("+index+",'set')\" >"+toggleVisible(index,'get')+"</span>";
-      layers += "<label onclick=\"layerOps("+index+")\"class=\"span8\">" + object.type + " - " + value + "</label>";
+      layers += "<label onclick=\"layerOps("+index+")\"class=\"span8 singleLayer\">" + object.type + " - " + value + "</label>";
       layers += "<div class=\"moveLayer\">";
       layers +=   "<a class=\"down\" onclick=\"moveBack("+index+")\">&#9652;</a>";
-      layers +=   "<a class=\"up\" onclick=\"moveFront("+index+")\">&#9652;</a>";
+      layers +=   "<a class=\"up\" onclick=\"moveFront("+index+"\">&#9652;</a>";
+      layers +=   "<span aria-hidden=\"true\" id=\"closeLayer\" onclick = \"closeLayer("+index+", this)\">×</span>"
       layers += "</div>\n";
     }
     $("#layers").html(layers);
+  }
+
+  function closeLayer(index,elem)
+  {
+    console.log('hap');
+    console.log($(elem))
+    $(elem).parent().parent().remove();
+
+    var objects = document.activecanvas.getObjects();
+    objects[index].remove();
   }
 
   //moves object one layer up
