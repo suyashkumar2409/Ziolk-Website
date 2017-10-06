@@ -1,3 +1,4 @@
+BeautifulSoup==3.2.1
 CherryPy==3.5.0
 Flask==0.12.2
 Flask-Bootstrap==3.3.7.1
@@ -11,15 +12,19 @@ Jinja2==2.9.6
 Mako==1.0.7
 Markdown==2.6.2
 MarkupSafe==1.0
+PAM==0.4.2
 Pillow==2.9.0
 PyJWT==1.0.0
 PyYAML==3.11
 Pygments==2.0.1
 Routes==2.2
 SQLAlchemy==1.1.13
+Twisted-Core==15.2.1
+Twisted-Web==15.2.1
 WTForms==2.1
 WebOb==1.4.1
 Werkzeug==0.12.2
+adium-theme-ubuntu==0.3.4
 alembic==0.9.5
 apsw==3.8.10.1.post1
 apt-xapian-index==0.46
