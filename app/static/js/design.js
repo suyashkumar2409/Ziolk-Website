@@ -163,27 +163,33 @@ function changeView(elem)
 		imgName = 'crew_front.png';
 		document.activecanvas = canvasfront;
 		// console.log($('#canvasfront'));
-		$('#frontcanvas').css('display', 'visible');
+		$('#frontcanvas').css('display', 'block');
 	}
 	else if( elem == 'backview')
 	{
 		imgName = 'crew_back.png';
 		document.activecanvas = canvasback;
-		$('#backcanvas').toggleClass('activeCanvas');
+		$('#frontcanvas').css('display', 'block');
+
+		// $('#backcanvas').toggleClass('activeCanvas');
 
 	}
 	else if( elem == 'leftview')
 	{
 		imgName = 'crew_left.png';
 		document.activecanvas = canvasleft;
-		$('#leftcanvas').toggleClass('activeCanvas');
+		$('#frontcanvas').css('display', 'block');
+
+		// $('#leftcanvas').toggleClass('activeCanvas');
 
 	}
 	else if( elem == 'rightview')
 	{
 		imgName = 'crew_right.png';
 		document.activecanvas = canvasright;
-		$('#rightcanvas').toggleClass('activeCanvas');
+		$('#frontcanvas').css('display', 'block');
+
+		// $('#rightcanvas').toggleClass('activeCanvas');
 
 	}
 	else
@@ -215,6 +221,7 @@ $("#rightview").click(function(){
 });
 
 $(document).ready(function(){
+	// console.log($('#frontcanvas'))
 	$('#frontcanvas').css('display','visible');
 	$('#backcanvas').css('display','none');
 	$('#leftcanvas').css('display','none');

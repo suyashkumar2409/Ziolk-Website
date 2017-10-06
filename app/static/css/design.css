@@ -333,9 +333,9 @@ li#zoom article {
 }
 
 /*#frontcanvas, #backcanvas, #leftcanvas, #rightcanvas*/
-#drawingArea div{
+/*#drawingArea div{
   display: none;
-}
+}*/
 /*canvas{
   display: 
 }
