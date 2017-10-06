@@ -164,12 +164,14 @@ function changeView(elem)
 		document.activecanvas = canvasfront;
 		// console.log($('#canvasfront'));
 		$('#frontcanvas').css('display', 'block');
+		console.log('frontview')
 	}
 	else if( elem == 'backview')
 	{
 		imgName = 'crew_back.png';
 		document.activecanvas = canvasback;
-		$('#frontcanvas').css('display', 'block');
+		$('#backcanvas').css('display', 'block');
+		console.log('backview')
 
 		// $('#backcanvas').toggleClass('activeCanvas');
 
@@ -178,7 +180,8 @@ function changeView(elem)
 	{
 		imgName = 'crew_left.png';
 		document.activecanvas = canvasleft;
-		$('#frontcanvas').css('display', 'block');
+		$('#leftcanvas').css('display', 'block');
+		console.log('leftview')
 
 		// $('#leftcanvas').toggleClass('activeCanvas');
 
@@ -187,7 +190,8 @@ function changeView(elem)
 	{
 		imgName = 'crew_right.png';
 		document.activecanvas = canvasright;
-		$('#frontcanvas').css('display', 'block');
+		$('#rightcanvas').css('display', 'block');
+		console.log('rightview')
 
 		// $('#rightcanvas').toggleClass('activeCanvas');
 
@@ -196,6 +200,7 @@ function changeView(elem)
 	{
 		imgName = 'crew_front.png';
 		document.activecanvas = canvasfront;
+		console.log('frontview')
 	}
 		
 	console.log(document.activecanvas);	
