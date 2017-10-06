@@ -17,7 +17,6 @@ PyYAML==3.11
 Pygments==2.0.1
 Routes==2.2
 SQLAlchemy==1.1.13
-Twisted-Web==15.2.1
 WTForms==2.1
 WebOb==1.4.1
 Werkzeug==0.12.2
