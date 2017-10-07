@@ -54,6 +54,80 @@ document.activecanvas = canvasfront;
     document.activecanvas.setActiveObject(document.activecanvas.item(get));
   }
 
+function updateTotalCost()  
+{
+  console.log('finalUpdate');
+  var num = Number($('#disabled-total').val());
+  var cost = Number($('#disabled-price').val());
+
+  $('#disabled-total-cost').val(num*cost);
+}
+
+
+  function updatePrice()
+  {
+    var idx = $('#selectProduct option:selected').index();
+    var ctr = 0;
+    var numReq = Number($('#disabled-total').val());
+
+    var majorCost, minorCost, basicCost=0;
+    for (var key in algo)
+    {
+      if(ctr == idx)
+      {
+        majorCost = Number(algo[key]['MajorPrint']);
+        minorCost = Number(algo[key]['MinorPrint']);
+
+        var i = 0;
+        for (var qty in algo[key])
+        {
+          if(i<=1)
+          {
+            ;
+          }
+          else
+          {
+            var currLim = qty;
+            if(numReq <= currLim)
+            {
+              basicCost = Number(algo[key][qty]);
+              break;
+            }
+
+          }
+          i++;
+        }
+
+        if(basicCost == 0)
+          basicCost = Number(algo[key]['end']);
+
+        break;
+      }
+
+    }
+
+    // at this point I have correct majorCost, minorCost and basicCost
+    var numMajor = 0, numMinor = 0;
+    // console.log(canvasfront.getObjects().length);
+    // console.log(canvasback.getObjects().length);
+    if(canvasfront.getObjects().length != 0)
+      numMajor+= 1;
+    if(canvasback.getObjects().length != 0)
+      numMajor+= 1;
+    if(canvasleft.getObjects().length != 0)
+      numMinor+= 1;
+    if(canvasright.getObjects().length != 0)
+      numMinor+= 1;
+
+    // console.log(numMajor);
+    // console.log(numMinor);
+    var costPerUnit = basicCost + numMajor*majorCost + numMinor*minorCost;
+
+    $('#disabled-price').val(costPerUnit);
+
+    updateTotalCost();
+  }
+
     //layer list of active canvas
   function getLayers() {
     // console.log('getting laywers');
@@ -80,6 +154,8 @@ document.activecanvas = canvasfront;
       layers += "</div>\n";
     }
     $("#layers").html(layers);
+
+    // updatePrice();
   }
 
   function closeLayer(index,elem)
@@ -317,20 +393,28 @@ document.activecanvas = canvasfront;
 // **** generic ops is important, but needs modified functions to work
 // **** also, damn coder has replicated code for all canvases, modularize it
 //Particular object selected
-canvasfront.on('object:selected', function(object){
+
+for(var itr = 0;itr < canvasses.length; itr++){
+
+var canvas = canvasses[itr];
+
+canvas.on('object:selected', function(object){
     object = object.target;
     objectops(object);
   });
 
 //Object selection cleared
-canvasfront.on('selection:cleared',function(){
+canvas.on('selection:cleared',function(){
     $(".poppable").slideUp('fast');
     $(".ops").removeClass('selected');
   });
 
-  canvasfront.on('after:render', function() {
+  canvas.on('after:render', function() {
     getLayers();
+    updatePrice();
   });
+
+}
 
 
 

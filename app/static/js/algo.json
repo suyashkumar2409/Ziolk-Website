@@ -1,8 +1,8 @@
 {
 	"Round neck tee half" : 
 	{
-		"Major Print": "10",
-		"Minor Print": "5",
+		"MajorPrint": "10",
+		"MinorPrint": "5",
 		"1" : "400",
 		"5": "300",
 		"10":"250",
@@ -17,8 +17,8 @@
 	},
 	"Round neck tee full" : 
 	{
-		"Major Print": "10",
-		"Minor Print": "5",
+		"MajorPrint": "10",
+		"MinorPrint": "5",
 		"1" : "400",
 		"5": "300",
 		"10":"250",
@@ -33,8 +33,8 @@
 	},
 	"Polo shirt with collar" : 
 	{
-		"Major Print": "15",
-		"Minor Print": "7",
+		"MajorPrint": "15",
+		"MinorPrint": "7",
 		"1" : "400",
 		"5": "300",
 		"10":"250",
@@ -49,8 +49,8 @@
 	},
 	"Sweatshirt" : 
 	{
-		"Major Print": "20",
-		"Minor Print": "10",
+		"MajorPrint": "20",
+		"MinorPrint": "10",
 		"1" : "650",
 		"5": "590",
 		"10":"530",
@@ -65,8 +65,8 @@
 	},
 	"Sweatshirt with hood" : 
 	{
-		"Major Print": "20",
-		"Minor Print": "10",
+		"MajorPrint": "20",
+		"MinorPrint": "10",
 		"1" : "650",
 		"5": "590",
 		"10":"530",
@@ -81,8 +81,8 @@
 	},
 	"Sweatshirt with zip" : 
 	{
-		"Major Print": "20",
-		"Minor Print": "10",
+		"MajorPrint": "20",
+		"MinorPrint": "10",
 		"1" : "650",
 		"5": "590",
 		"10":"530",
@@ -97,8 +97,8 @@
 	},
 	"Sweatshirt with zip and hood" : 
 	{
-		"Major Print": "20",
-		"Minor Print": "10",
+		"MajorPrint": "20",
+		"MinorPrint": "10",
 		"1" : "650",
 		"5": "590",
 		"10":"530",

@@ -225,7 +225,6 @@ $("#rightview").click(function(){
 	changeView('rightview');
 });
 
-var algo;
 
 $(document).ready(function(){
 	// console.log($('#frontcanvas'))
@@ -239,7 +238,6 @@ $(document).ready(function(){
 
 	var options = "";
 
-	algo = loadJSON('http://127.0.0.1:5000/static/js/algo.json')
 
 	var ctr = 1;
 	for (var shirtType in algo)
@@ -251,6 +249,8 @@ $(document).ready(function(){
 		
 
 	$('#selectProduct').html(options);
+
+	updatePrice();
 });
 
 $('.total-effect').change(function(){
@@ -260,18 +260,18 @@ $('.total-effect').change(function(){
 	var lnum = Number($('#lnum').val());
 	var xlnum = Number($('#xlnum').val());
 	var xxlnum = Number($('#xxlnum').val());
-	console.log(snum);
+	// console.log(snum);
 	var tot = snum + mnum + lnum + xlnum + xxlnum;
 	$('#disabled-total').val(tot);
+
+	updatePrice();
 })
   
-$('.total-cost-effect').change(function(){
-	var num = Number($('#disabled-total').val());
-	var cost = Number($('#disabled-price').val());
-
-	$('#disabled-total-cost').val(num*cost);
-})
 
 $("#selectProduct").change(function(){
 	$("#shirtTypeLabel").html($("#selectProduct").find(":selected").text())
 })
+
+// $('#layers-div').change(function(){
+// 	updatePrice();
+// })

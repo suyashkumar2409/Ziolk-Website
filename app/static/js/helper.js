@@ -1,3 +1,5 @@
+
+var algo;
 function loadJSON(filePath) {
   // Load json file;
   var json = loadTextFileAjaxSync(filePath, "application/json");
@@ -24,3 +26,7 @@ function loadTextFileAjaxSync(filePath, mimeType)
     return null;
   }
 }
+
+$(document).ready(function(){
+  algo = loadJSON('http://127.0.0.1:5000/static/js/algo.json');
+})
