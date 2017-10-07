@@ -74,8 +74,8 @@ $("li#zoom").click(function(){
 $(document).ready(function(){
 	(function (){
 			
-		var apiKey = "AIzaSyDBQLiWr7M6982EiWDayj2waQvh_O9GDqU";	
-		// var apiKey = loadJSON('js/keys.json') ['google-fonts']
+		// var apiKey = "AIzaSyDBQLiWr7M6982EiWDayj2waQvh_O9GDqU";	
+		var apiKey = loadJSON('http://127.0.0.1:5000/static/js/keys.json') ['google-fonts']
 		var script = document.createElement('script');
 		script.src = 'https://www.googleapis.com/webfonts/v1/webfonts?key=' + apiKey + '&callback=SetFonts';
 		document.body.appendChild(script);
@@ -225,6 +225,8 @@ $("#rightview").click(function(){
 	changeView('rightview');
 });
 
+var algo;
+
 $(document).ready(function(){
 	// console.log($('#frontcanvas'))
 
@@ -235,8 +237,20 @@ $(document).ready(function(){
 	$('#rightcanvas').css('display','none');
 	console.log('yo');
 
-	
-	$('#selectProduct')
+	var options = "";
+
+	algo = loadJSON('http://127.0.0.1:5000/static/js/algo.json')
+
+	var ctr = 1;
+	for (var shirtType in algo)
+	{
+		options += "<option value = \"" + ctr + "\">" + shirtType + "</option>"
+		ctr+=1; 
+	}
+
+		
+
+	$('#selectProduct').html(options);
 });
 
 $('.total-effect').change(function(){
@@ -256,4 +270,8 @@ $('.total-cost-effect').change(function(){
 	var cost = Number($('#disabled-price').val());
 
 	$('#disabled-total-cost').val(num*cost);
+})
+
+$("#selectProduct").change(function(){
+	$("#shirtTypeLabel").html($("#selectProduct").find(":selected").text())
 })
