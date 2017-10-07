@@ -233,4 +233,22 @@ $(document).ready(function(){
 	$('#rightcanvas').css('display','none');
 	console.log('yo');
 });
+
+$('.total-effect').change(function(){
+	// console.log($('#snum').val());
+	var snum = Number($('#snum').val());
+	var mnum = Number($('#mnum').val());
+	var lnum = Number($('#lnum').val());
+	var xlnum = Number($('#xlnum').val());
+	var xxlnum = Number($('#xxlnum').val());
+	console.log(snum);
+	var tot = snum + mnum + lnum + xlnum + xxlnum;
+	$('#disabled-total').val(tot);
+})
   
+$('.total-cost-effect').change(function(){
+	var num = Number($('#disabled-total').val());
+	var cost = Number($('#disabled-price').val());
+
+	$('#disabled-total-cost').val(num*cost);
+})

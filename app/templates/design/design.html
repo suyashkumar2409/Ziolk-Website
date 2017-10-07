@@ -260,36 +260,35 @@
 		  		<div class="well right-panel">
 
 					<button type="button" class="btn btn-large btn-block btn-warning" id="saveDesign">Save</button>
-					
+					<!-- 
 					<ul class="nav nav-pills custom-nav-pills">
 					    <li class="pill-unselected"><a>Front</a></li>
 					    <li class="pill-unselected"><a>Back</a></li>
 					    <li class="pill-unselected"><a>Left</a></li>
 					    <li class="pill-unselected"><a>Right</a></li>
-					</ul>
+					</ul> -->
 
-					<h5 data-toggle="collapse" data-target="#selectQuantity" class="toggleCaret">
-								<span class="caret-change caret-right"></span>Quantities & Sizes</h5>
+					<h5>Quantities & Sizes</h5>
 
-					<div  id="selectQuantity" class="collapse">
+					<div  id="selectQuantity">
 						<ul class="nav nav-pills sizes-list-names">
-					    <li >S<input type="number" step="1"></input></li>
-					    <li >M<input type="number" step="1"></input></li>
-					    <li >L<input type="number" step="1"></input></li>
-					    <li >XL<input type="number" step="1"></input></li>
-					    <li >XXL<input type="number" step="1"></input></li>
+					    <li >S<input class="total-effect" type="number" step="1" min="0" id="snum"></input></li>
+					    <li >M<input class="total-effect" type="number" step="1" min="0" id="mnum"></input></li>
+					    <li >L<input class="total-effect" type="number" step="1" min="0" id="lnum"></input></li>
+					    <li >XL<input class="total-effect" type="number" step="1" min="0" id="xlnum"></input></li>
+					    <li >XXL<input class="total-effect" type="number" step="1" min="0" id="xxlnum"></input></li>
 
 						</ul>
 
-						<h6>Total Pieces</h6> <input id="disabled-total" type="number" step="1" disabled></input>
+						<h6>Total Pieces</h6> <input id="disabled-total" type="number" step="1" disabled value="0" class="total-cost-effect"></input>
 					</div>
 
-					<h6 >Total Cost <input id="disabled-total" type="number" step="1" disabled></input></p>
+					<h6 >Total Cost <input id="disabled-total-cost" type="number" step="1" disabled value="0"></input></p>
 
 
 					<br>
 
-					<h6><input id="disabled-total" type="number" step="1" disabled></input> per Unit</h6>
+					<h6><input id="disabled-price" type="number" step="1" disabled class="total-cost-effect" value="0"></input> per Unit</h6>
 
 	    		</div>		
 			    <!-- <p>

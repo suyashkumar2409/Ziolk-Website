@@ -1,6 +1,11 @@
 // console.log('here');
 var img = new Image();
+var opt = 2;
+if(opt == 1)
 	img.src = 'https://ziolk.herokuapp.com/static/img/color-picker-small.jpg';
+else
+	img.src = 'http://127.0.0.1:5000/static/img/color-picker-small.jpg';
+
 	img.crossOrigin="anonymous";
 	
 img.onload = function()
