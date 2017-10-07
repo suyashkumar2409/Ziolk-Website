@@ -227,11 +227,16 @@ $("#rightview").click(function(){
 
 $(document).ready(function(){
 	// console.log($('#frontcanvas'))
+
+	// set canvas displays
 	$('#frontcanvas').css('display','visible');
 	$('#backcanvas').css('display','none');
 	$('#leftcanvas').css('display','none');
 	$('#rightcanvas').css('display','none');
 	console.log('yo');
+
+	
+	$('#selectProduct')
 });
 
 $('.total-effect').change(function(){
