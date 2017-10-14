@@ -272,6 +272,22 @@ $("#selectProduct").change(function(){
 	$("#shirtTypeLabel").html($("#selectProduct").find(":selected").text())
 })
 
+$("#saveDesign").click(function(){
+	var obj;
+	obj['name'] = $("#name-of-design").val();
+	obj['canvasfront'] = canvasfront;
+	obj['canvasback'] = canvasback;
+	obj['canvasleft'] = canvasleft;
+	obj['canvasright'] = canvasright;
+	obj['snum'] = Number($('#snum').val());
+	obj['mnum'] = Number($('#mnum').val());
+	obj['lnum'] = Number($('#lnum').val());
+	obj['xlnum'] = Number($('#xlnum').val());
+	obj['xxlnum'] = Number($('#xxlnum').val());
+
+	
+})
+
 // $('#layers-div').change(function(){
 // 	updatePrice();
 // })
