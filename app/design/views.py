@@ -6,3 +6,8 @@ from app import db
 @design_blueprint.route('/')
 def design():
 	return render_template('/design/design.html')
+
+
+@design_blueprint.route('/<name>', methods = ['GET', 'POST'])
+def handleTemplate():
+	return render_template('/design/design.html')

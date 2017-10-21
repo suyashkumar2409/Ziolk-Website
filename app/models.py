@@ -23,6 +23,7 @@ class User(UserMixin, db.Model):
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     password_hash = db.Column(db.String(128))
     confirmed = db.Column(db.Boolean, default = False)
+    designs = db.relationship('Design', backref = 'design', lazy = 'dynamic')
 
     def generate_confirmation_token(self, expiration = 3600*24):
         s = Serializer(current_app.config['SECRET_KEY'], expiration)
@@ -72,3 +73,22 @@ class User(UserMixin, db.Model):
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+class Design(db.Model):
+    __tablename__ = 'designs'
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(64), unique = True, index = True)
+    user = db.Column(db.Integer, db.ForeignKey('users.id'))
+    timeCreated = db.Column(db.DateTime)
+    timeLastUpdated = db.Column(db.DateTime)
+    # find a way to save design
+    # create a relationship column in users and find a way to migrate it
+
+    def __repr__(self):
+        return '<Design %r>' % self.name
+
+# Used to create new revisions
+# class Trial(db.Model):
+#     __tablename__ = 'trials'
+#     id = db.Column(db.Integer, primary_key = True)
+
