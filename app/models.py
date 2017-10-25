@@ -81,6 +81,7 @@ class Design(db.Model):
     user = db.Column(db.Integer, db.ForeignKey('users.id'))
     timeCreated = db.Column(db.DateTime)
     timeLastUpdated = db.Column(db.DateTime)
+    design = db.Column(db.Text)
     # find a way to save design
     # create a relationship column in users and find a way to migrate it
 

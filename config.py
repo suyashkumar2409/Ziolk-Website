@@ -2,6 +2,14 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+POSTGRES = {
+    'user': 'postgres',
+    'pw': 'password',
+    'db': 'my_database',
+    'host': 'localhost',
+    'port': '5432',
+}
+
 class Config:
 	SECRET_KEY = os.environ.get('SECRET_KEY') or 'ZiolkEncryption secret Code'
 	SQLALCHEMY_COMMIT_ON_TEARDOWN = True
