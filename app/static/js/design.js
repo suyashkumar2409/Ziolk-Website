@@ -282,24 +282,53 @@ $("#saveDesign").click(function(){
             type: 'POST',
             contentType: 'application/json;charset=UTF-8',
             success: function(response) {
-                console.log(response);
+            	response = $.parseJSON(response)
+                // console.log(response.result);
+                // console.log(response['result']);
+                if(response['result'] === 'False')
+                {
+                	var obj = {};
+
+					obj['name'] = $("#name-of-design").val();
+					obj['canvasfront'] = canvasfront;
+					obj['canvasback'] = canvasback;
+					obj['canvasleft'] = canvasleft;
+					obj['canvasright'] = canvasright;
+					obj['snum'] = Number($('#snum').val());
+					obj['mnum'] = Number($('#mnum').val());
+					obj['lnum'] = Number($('#lnum').val());
+					obj['xlnum'] = Number($('#xlnum').val());
+					obj['xxlnum'] = Number($('#xxlnum').val());
+
+                	// $("#name-of-design").val('Yo!')
+                	$.ajax({
+                		url:'/design/' + obj['name'],
+                		data: obj,
+                		type: 'POST',
+            			contentType: 'application/json;charset=UTF-8',
+            			success: function(response){
+
+            			},
+            			error: function(error){
+            				console.log(error);
+            			
+            			}
+
+                	})
+
+	
+                }
+                else
+                {
+                	$("#name-of-design").val('That name has already been set!')
+                }
             },
             error: function(error) {
                 console.log(error);
+                console.log('yo');
             }
         });
 	// var obj;
-	// obj['name'] = $("#name-of-design").val();
-	// obj['canvasfront'] = canvasfront;
-	// obj['canvasback'] = canvasback;
-	// obj['canvasleft'] = canvasleft;
-	// obj['canvasright'] = canvasright;
-	// obj['snum'] = Number($('#snum').val());
-	// obj['mnum'] = Number($('#mnum').val());
-	// obj['lnum'] = Number($('#lnum').val());
-	// obj['xlnum'] = Number($('#xlnum').val());
-	// obj['xxlnum'] = Number($('#xxlnum').val());
-
 	
 })
 

@@ -4,6 +4,7 @@ from flask_login import login_required, login_user, logout_user, current_user
 from app import db
 from ..models import Design
 import json
+import datetime
 
 @design_blueprint.route('/')
 @login_required
@@ -14,7 +15,23 @@ def design():
 @design_blueprint.route('/<name>', methods = ['GET', 'POST'])
 @login_required
 def handleTemplate():
-	return render_template('/design/design.html')
+#  if GET
+# Load from database
+# else save to database and restore everything
+	if request.method == 'POST':
+		objJSon = request.json['data']
+		newDesign = Design(name=name, user = current_user.get_id(), timeCreated = datetime.datetime.now(), timeLastUpdated = datetime.datetime.now(), design = json.Stringify(objJson))
+		db.session.add(newDesign)
+		db.commit()
+
+		# send objJson to front-end and load design
+	else:
+		objString = Design.query.filter_by(user = current_user.get_id()).filter_by(name = name)
+		objJson = json.loads(objString)
+
+		# send objJson to front-end and load design
+		
+
 
 @design_blueprint.route('/checkName', methods=['GET','POST'])
 @login_required
