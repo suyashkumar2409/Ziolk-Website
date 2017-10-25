@@ -23,7 +23,7 @@ class User(UserMixin, db.Model):
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     password_hash = db.Column(db.String(128))
     confirmed = db.Column(db.Boolean, default = False)
-    designs = db.relationship('Design', backref = 'design', lazy = 'dynamic')
+    designs = db.relationship('Design', backref = 'designs', lazy = 'dynamic')
 
     def generate_confirmation_token(self, expiration = 3600*24):
         s = Serializer(current_app.config['SECRET_KEY'], expiration)
