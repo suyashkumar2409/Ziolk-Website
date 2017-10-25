@@ -273,17 +273,32 @@ $("#selectProduct").change(function(){
 })
 
 $("#saveDesign").click(function(){
-	var obj;
-	obj['name'] = $("#name-of-design").val();
-	obj['canvasfront'] = canvasfront;
-	obj['canvasback'] = canvasback;
-	obj['canvasleft'] = canvasleft;
-	obj['canvasright'] = canvasright;
-	obj['snum'] = Number($('#snum').val());
-	obj['mnum'] = Number($('#mnum').val());
-	obj['lnum'] = Number($('#lnum').val());
-	obj['xlnum'] = Number($('#xlnum').val());
-	obj['xxlnum'] = Number($('#xxlnum').val());
+
+	// First check if name can be used
+	// then save object
+	$.ajax({
+            url: '/design/checkName',
+            data: {'designName':$("#name-of-design").val()},
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+	// var obj;
+	// obj['name'] = $("#name-of-design").val();
+	// obj['canvasfront'] = canvasfront;
+	// obj['canvasback'] = canvasback;
+	// obj['canvasleft'] = canvasleft;
+	// obj['canvasright'] = canvasright;
+	// obj['snum'] = Number($('#snum').val());
+	// obj['mnum'] = Number($('#mnum').val());
+	// obj['lnum'] = Number($('#lnum').val());
+	// obj['xlnum'] = Number($('#xlnum').val());
+	// obj['xxlnum'] = Number($('#xxlnum').val());
 
 	
 })
