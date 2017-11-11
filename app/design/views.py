@@ -13,7 +13,7 @@ def design():
 	return render_template('/design/design.html')
 
 
-@design_blueprint.route('/<name>', methods = ['GET', 'POST'])
+@design_blueprint.route('/custom/<name>', methods = ['GET', 'POST'])
 @login_required
 def handleTemplate(name):
 #  if GET
@@ -64,3 +64,17 @@ def checkName():
 			print "no"
 	except Exception as e:
 		return str(e)	
+
+@design_blueprint.route('/all')
+@login_required
+def all():
+	designs = Design.query.filter_by(user = current_user.get_id()).order_by(Design.timeLastUpdated.desc())
+	designNames = []
+	urlNames = []
+
+	for d in designs:
+		designNames.append(d.name)
+		urlNames.append(d.getUrl())
+
+
+	return render_template('allDesigns.html', designs = designs)

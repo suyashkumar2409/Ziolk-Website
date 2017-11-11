@@ -1,3 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Design - Ziolk {% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +20,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/design.css') }}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/picker.css') }}">
-</h3>
+
 
   </head>
 
@@ -24,7 +31,6 @@
 
     <div class="container">
 
-    <h5> <a href="{{url_for('ziolkB.index')}}">Home</a></h5>
 		<section id="typography">
 		  <div class="page-header">
 		    <h1>Design T-Shirt</h1>

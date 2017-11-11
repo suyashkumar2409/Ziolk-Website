@@ -1,7 +1,7 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from . import db, login_manager
-from flask import current_app
+from flask import current_app, url_for
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 class Role(db.Model):
@@ -82,8 +82,13 @@ class Design(db.Model):
     timeCreated = db.Column(db.DateTime, default = 1)
     timeLastUpdated = db.Column(db.DateTime, default = 1)
     design = db.Column(db.PickleType)
+ 
+    thumbnail = 
     # find a way to save design
     # create a relationship column in users and find a way to migrate it
+    def getUrl(self):
+        return url_for('design.handleTemplate', name = self.name)
+
 
     def __repr__(self):
         return '<Design %r>' % self.name

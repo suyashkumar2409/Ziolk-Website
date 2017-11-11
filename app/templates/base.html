@@ -46,7 +46,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('design.design') }}">Design Now</a></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Instant Quote</a></li>
+                    <a class="nav-link" href="{{url_for('design.all')}}">My designs</a></li>
                 <li class="nav-item">
                     <a class="nav-link" href="/">How it works</a></li>
                 
@@ -134,10 +134,5 @@
     <script src="{{ url_for('static', filename = 'vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename = 'vendor/popper/popper.min.js') }}"></script>
     <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-
-<!-- 
-<footer class = "col-md-6" style = "position:absolute; bottom:2%">
-    <hr></hr>&copy; Ziolk
-</footer>
- -->{%- endblock footer %}
+{% endblock %}
 {% endblock %}

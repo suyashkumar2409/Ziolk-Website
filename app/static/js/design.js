@@ -302,16 +302,17 @@ $("#saveDesign").click(function(){
 					obj['lnum'] = Number($('#lnum').val());
 					obj['xlnum'] = Number($('#xlnum').val());
 					obj['xxlnum'] = Number($('#xxlnum').val());
+					obj['shirtColor'] = $('#tshirtFacing').css('color');
 
 					console.log(obj)
                 	// $("#name-of-design").val('Yo!')
                 	$.ajax({
-                		url:'/design/' + obj['name'],
+                		url:'/design/custom/' + obj['name'],
                 		data: JSON.stringify(obj),
                 		type: 'POST',
             			contentType: 'application/json;charset=UTF-8',
             			success: function(response){
-            				window.location.href = window.location.href + obj['name']
+            				window.location.href = window.location.href + 'custom/' + obj['name']
             			},
             			error: function(error){
             				console.log(error);	
@@ -351,6 +352,8 @@ function reRender(obj)
 	$('#lnum').val(obj['lnum']);
 	$('#xlnum').val(obj['xlnum']);
 	$('#xxlnum').val(obj['xxlnum']);
+
+	$('#tshirtFacing').css('color', obj['shirtColor']);
 
 	getLayers();
 	updatePrice();
