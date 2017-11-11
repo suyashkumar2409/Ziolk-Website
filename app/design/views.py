@@ -22,7 +22,7 @@ def handleTemplate(name):
 	if request.method == 'POST':
 		try:
 			obj = request.json
-			print obj
+			print obj['canvasfront']
 			newDesign = Design(name=name, user = current_user.get_id(), timeCreated = datetime.datetime.now(), timeLastUpdated = datetime.datetime.now(), design = obj)
 			db.session.add(newDesign)
 			db.session.commit()

@@ -388,6 +388,14 @@
 
     <script>
     {% if rerender %}
+
+    $(document).ready(function(){
+
+
+    	var obj = JSON.parse({{ obj | tojson}});
+    	reRender(obj)
+
+    });
     	// load object here
     {% endif %}
 

@@ -293,10 +293,10 @@ $("#saveDesign").click(function(){
                 	// var url = response['url']
 
 					obj['name'] = $("#name-of-design").val();
-					obj['canvasfront'] = canvasfront;
-					obj['canvasback'] = canvasback;
-					obj['canvasleft'] = canvasleft;
-					obj['canvasright'] = canvasright;
+					obj['canvasfront'] = JSON.stringify(canvasfront);
+					obj['canvasback'] = JSON.stringify(canvasback);
+					obj['canvasleft'] = JSON.stringify(canvasleft);
+					obj['canvasright'] = JSON.stringify(canvasright);
 					obj['snum'] = Number($('#snum').val());
 					obj['mnum'] = Number($('#mnum').val());
 					obj['lnum'] = Number($('#lnum').val());
@@ -335,6 +335,27 @@ $("#saveDesign").click(function(){
 	// var obj;
 	
 })
+
+function reRender(obj)
+{
+	console.log(obj['canvasfront']);
+
+
+	canvasfront.loadFromJSON(obj['canvasfront']);
+	canvasback.loadFromJSON( obj['canvasback']);
+	canvasleft.loadFromJSON(obj['canvasleft']);
+	canvasright.loadFromJSON(obj['canvasright']);
+
+	$('#snum').val(obj['snum']);
+	$('#mnum').val(obj['mnum']);
+	$('#lnum').val(obj['lnum']);
+	$('#xlnum').val(obj['xlnum']);
+	$('#xxlnum').val(obj['xxlnum']);
+
+	getLayers();
+	updatePrice();
+	
+}
 
 // $('#layers-div').change(function(){
 // 	updatePrice();

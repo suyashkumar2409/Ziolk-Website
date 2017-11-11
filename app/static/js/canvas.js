@@ -461,9 +461,3 @@ canvas.on('selection:cleared',function(){
   //   $("#addimg").trigger("click");
   // });
 
-$(document).ready(function(){
-  addText("hey");
-  addText("hello");
-
-});
-  
