@@ -83,7 +83,7 @@ class Design(db.Model):
     timeLastUpdated = db.Column(db.DateTime, default = 1)
     design = db.Column(db.PickleType)
  
-    thumbnail = 
+    # thumbnail = 
     # find a way to save design
     # create a relationship column in users and find a way to migrate it
     def getUrl(self):

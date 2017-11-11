@@ -76,5 +76,7 @@ def all():
 		designNames.append(d.name)
 		urlNames.append(d.getUrl())
 
+	totalNum = len(designNames)
+	left= totalNum % 3
 
-	return render_template('allDesigns.html', designs = designs)
+	return render_template('design/allDesigns.html', designNames = designNames, urlNames = urlNames, left = left, totalNum = totalNum)

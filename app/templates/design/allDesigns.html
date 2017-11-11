@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Ziolk - Login{% endblock %}
+
+{% block head %}
+{{ super()}}
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/allDesigns.css') }}">
+
+{% endblock %}
+
+{% block page_content %}
+{{super()}}
+
+
+<div class="container items">
+  {% for i in range(totalNum) %}
+  {% if i%4 == 0 %}
+    <div class="row">
+  {% endif %}
+        <div class="col-md-3">
+            <div class="product-item">
+              <div class="pi-img-wrapper">
+                    <img src="{{url_for('static', filename='img/womens_crew_front.png')}}" class="img-responsive" alt="Berry Lace Dress">
+                
+                </img>
+              
+              </div>
+              <h3><a href="{{urlNames[i]}}">{{ designNames[i] }}</a></h3>
+              <a href="javascript:;" class="btn add2cart">Add to cart</a>
+            </div>
+        </div>
+  {% if i%4 == 3 %}
+    </div>
+  {% endif %}    
+
+  {% endfor %}
+  
+</div>
+
+{% endblock %}
