@@ -283,11 +283,14 @@ $("#saveDesign").click(function(){
             contentType: 'application/json;charset=UTF-8',
             success: function(response) {
             	response = $.parseJSON(response)
-                // console.log(response.result);
-                // console.log(response['result']);
-                if(response['result'] === 'False')
+                console.log(response);
+                console.log(response['result']);
+
+                if(response['result'] == 'True')
                 {
+                	console.log('hey')
                 	var obj = {};
+                	// var url = response['url']
 
 					obj['name'] = $("#name-of-design").val();
 					obj['canvasfront'] = canvasfront;
@@ -300,17 +303,18 @@ $("#saveDesign").click(function(){
 					obj['xlnum'] = Number($('#xlnum').val());
 					obj['xxlnum'] = Number($('#xxlnum').val());
 
+					console.log(obj)
                 	// $("#name-of-design").val('Yo!')
                 	$.ajax({
                 		url:'/design/' + obj['name'],
-                		data: obj,
+                		data: JSON.stringify(obj),
                 		type: 'POST',
             			contentType: 'application/json;charset=UTF-8',
             			success: function(response){
-
+            				window.location.href = window.location.href + obj['name']
             			},
             			error: function(error){
-            				console.log(error);
+            				console.log(error);	
             			
             			}
 

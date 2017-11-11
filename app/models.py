@@ -78,10 +78,10 @@ class Design(db.Model):
     __tablename__ = 'designs'
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(64), unique = True, index = True)
-    user = db.Column(db.Integer, db.ForeignKey('users.id'))
-    timeCreated = db.Column(db.DateTime)
-    timeLastUpdated = db.Column(db.DateTime)
-    design = db.Column(db.Text)
+    user = db.Column(db.Integer, db.ForeignKey('users.id'), index = True)
+    timeCreated = db.Column(db.DateTime, default = 1)
+    timeLastUpdated = db.Column(db.DateTime, default = 1)
+    design = db.Column(db.PickleType)
     # find a way to save design
     # create a relationship column in users and find a way to migrate it
 

@@ -268,8 +268,22 @@
 			
 			<div class="span3">
 		  		<div class="well right-panel">
+
+		  			{% if rerender %}
+
+		  			<p>{{ name }}</p>
+		  			<button type="button" class="btn btn-large btn-block btn-warning" id="reSaveDesign">Save</button>
+					
+
+		  			{% else %}
+
 		  			<input type="text" id="name-of-design" placeholder="Your Design Name"> </input>
-					<button type="button" class="btn btn-large btn-block btn-warning" id="saveDesign">Save</button>
+
+		  			<button type="button" class="btn btn-large btn-block btn-warning" id="saveDesign">Save</button>
+					
+
+		  			{% endif %}
+
 					<!-- 
 					<ul class="nav nav-pills custom-nav-pills">
 					    <li class="pill-unselected"><a>Front</a></li>
@@ -371,6 +385,13 @@
     <script src="{{url_for('static', filename='js/picker.js') }}"></script>
     <script src="{{url_for('static', filename='js/helper.js') }}"></script>
     <script src="{{url_for('static', filename='js/design.js') }}"></script>
+
+    <script>
+    {% if rerender %}
+    	// load object here
+    {% endif %}
+
+    </script>
    
   </body>
 </html>
